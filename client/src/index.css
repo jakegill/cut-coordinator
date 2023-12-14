@@ -1,0 +1,14 @@
+:root {
+  --primary: hsl(50, 85%, 72%);
+  --darkest: hsl(50, 7%, 4%);
+  --dark: hsl(50, 11%, 11%);
+  --medium: hsl(50, 16%, 16%);
+  --light: hsl(50, 16%, 57%);
+  --lightest: hsl(50, 0%, 96%);
+  --white: hsl(50, 0%, 100%);
+  font-family: "Roboto";
+}
+
+body {
+  margin: 0;
+}
