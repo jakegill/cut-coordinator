@@ -1,9 +1,13 @@
 import "./SignIn.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../../redux/auth/authSlice.js";
 
 export default function SignIn() {
   const [loginForm, setLoginForm] = useState({});
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLoginFormChange = (e) => {
     setLoginForm({
@@ -13,9 +17,24 @@ export default function SignIn() {
     console.log(loginForm);
   };
 
-  const handleLoginFormSubmit = (e) => {
+  const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(loginForm);
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginForm),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        dispatch(signIn(data));
+        navigate(data.accountType === "client" ? "/client" : "/barber");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
