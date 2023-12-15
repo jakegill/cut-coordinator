@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function SignUp() {
   const [accountType, setAccountType] = useState("client");
   const [signUpForm, setSignUpForm] = useState({});
+  const [error, setError] = useState("");
 
   const handleAccountTypeChange = (e) => {
     setAccountType(e.target.value);
@@ -18,9 +19,30 @@ export default function SignUp() {
     console.log(signUpForm);
   };
 
-  const handleSignUpFormSubmit = (e) => {
+  const handleSignUpFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(signUpForm);
+    if (!signUpForm.firstName || !signUpForm.lastName || !signUpForm.email) {
+      setError("Required fields are empty.");
+    } else if (signUpForm.password !== signUpForm.confirmPassword) {
+      setError("Passwords do not match.");
+    } else {
+      try {
+        setError("");
+        const res = await fetch("http://localhost:3000/api/auth/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...signUpForm,
+            accountType,
+          }),
+        });
+        const data = await res.json();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+        setError(error.message);
+      }
+    }
   };
 
   return (
@@ -69,7 +91,7 @@ export default function SignUp() {
           <input
             className="signup-input"
             type="password"
-            id="confirm-password"
+            id="confirmPassword"
             placeholder="Confirm password"
             onChange={handleSignUpFormChange}
           />
@@ -121,6 +143,7 @@ export default function SignUp() {
           <button className="signup-form-submit" type="submit">
             SIGN UP
           </button>
+          <p className="signup-form-error">{error}</p>
         </form>
       </section>
     </div>

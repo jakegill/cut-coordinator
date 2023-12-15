@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 const barberSchema = new mongoose.Schema(
   {
@@ -26,13 +27,13 @@ const barberSchema = new mongoose.Schema(
     clients: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Client", // Assuming your client model is named 'Client'
+        ref: "Client",
       },
     ],
   },
   { timestamps: true }
 );
 
-const Barber = mongoose.model("Barber", userSchema);
+const Barber = mongoose.model("Barber", barberSchema);
 
 export default Barber;

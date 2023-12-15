@@ -131,3 +131,12 @@
   line-height: 1.6rem;
   align-self: center;
 }
+
+.signup-form-submit:hover {
+  cursor: pointer;
+}
+
+.signup-form-error {
+  color: red;
+  font-size: 0.8rem;
+}
