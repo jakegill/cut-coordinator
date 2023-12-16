@@ -1,13 +1,14 @@
 import "./SignIn.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../../../redux/auth/authSlice.js";
 
 export default function SignIn() {
   const [loginForm, setLoginForm] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const handleLoginFormChange = (e) => {
     setLoginForm({
@@ -28,9 +29,10 @@ export default function SignIn() {
         body: JSON.stringify(loginForm),
       });
       const data = await response.json();
+      console.log(data);
       if (response.ok) {
         dispatch(signIn(data));
-        navigate(data.accountType === "client" ? "/client" : "/barber");
+        navigate(state.auth.accountType === "client" ? "/client" : "/barber");
       }
     } catch (error) {
       console.error("Login error:", error);

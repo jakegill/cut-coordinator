@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Client from "./pages/Client/Client";
 import Barber from "./pages/Barber/Barber";
 import Home from "./pages/Home/Home";
+import PrivateRouter from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -12,8 +13,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/client" element={<Client />} />
-        <Route path="/barber" element={<Barber />} />
+        <Route element={<PrivateRouter />}>
+          <Route path="/client" element={<Client />} />
+        </Route>
+        <Route element={<PrivateRouter />}>
+          <Route path="/barber" element={<Barber />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

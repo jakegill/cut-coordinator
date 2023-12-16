@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const clientSchema = new mongoose.Schema(
   {
+    accountType: {
+      type: String,
+      required: true,
+      default: "client",
+    },
     firstName: {
       type: String,
       required: true,

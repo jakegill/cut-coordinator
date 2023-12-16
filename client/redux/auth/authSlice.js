@@ -14,6 +14,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     signIn: (state, action) => {
+      console.log(action.payload);
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;

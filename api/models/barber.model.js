@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const barberSchema = new mongoose.Schema(
   {
+    accountType: {
+      type: String,
+      required: true,
+      default: "barber",
+    },
     firstName: {
       type: String,
       required: true,

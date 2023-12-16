@@ -61,6 +61,7 @@ export async function signup(req, res, next) {
         firstName,
         lastName,
         email,
+        accountType,
         password: hashedPassword,
       });
       await user.save();
@@ -69,6 +70,7 @@ export async function signup(req, res, next) {
         firstName,
         lastName,
         email,
+        accountType,
         password: hashedPassword,
       });
       await user.save();

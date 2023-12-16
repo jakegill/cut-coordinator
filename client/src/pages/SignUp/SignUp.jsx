@@ -37,7 +37,6 @@ export default function SignUp() {
           }),
         });
         const data = await res.json();
-        console.log(data);
       } catch (error) {
         console.error(error);
         setError(error.message);
