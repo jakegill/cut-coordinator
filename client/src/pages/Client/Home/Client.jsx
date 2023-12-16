@@ -17,11 +17,20 @@ export default function ClientHome() {
         <main>
           <header className="client-main-header">
             <h3 className="client-subtitle">MY BARBERS</h3>
-            <Link>FIND BARBERS</Link>
+            <Link to="/client/search" className="client-link">
+              FIND BARBERS
+            </Link>
           </header>
           <div className="client-barbers">
             {user.barbers.length === 0 ? (
-              <p className="no-barbers">No barbers found!</p>
+              <>
+                <div className="no-barbers-container">
+                  <p className="no-barbers">No barbers found!</p>
+                  <Link className="no-barbers-button" to="/client/search">
+                    Find A Barber
+                  </Link>
+                </div>
+              </>
             ) : null}
           </div>
         </main>
