@@ -26,7 +26,7 @@ const barberSchema = new mongoose.Schema(
       required: true,
     },
     profilePicture: {
-      type: Buffer, //binary data for img
+      type: String,
       required: false,
     },
     clients: [
@@ -38,6 +38,11 @@ const barberSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+barberSchema.pre("save", function (next) {
+  this.profilePicture = `https://ui-avatars.com/api/?name=${this.firstName}+${this.lastName}&background=0b0b09&color=a39d80&bold=true&size=128&rounded=true`;
+  next();
+});
 
 const Barber = mongoose.model("Barber", barberSchema);
 

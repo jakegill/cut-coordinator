@@ -1,13 +1,21 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 
-export default function PrivateRouter() {
+export function PrivateRouteClient() {
   const accountType = useSelector((state) => state.auth.accountType);
 
   if (accountType === "client") {
-    return <Navigate to="/client" />;
-  } else if (accountType === "barber") {
-    return <Navigate to="/barber" />;
+    return <Outlet />;
+  } else {
+    return <Navigate to="/signin" />;
+  }
+}
+
+export function PrivateRouteBarber() {
+  const accountType = useSelector((state) => state.auth.accountType);
+
+  if (accountType === "barber") {
+    return <Outlet />;
   } else {
     return <Navigate to="/signin" />;
   }

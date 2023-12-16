@@ -16,7 +16,6 @@ export default function SignUp() {
       ...signUpForm,
       [e.target.id]: e.target.value,
     });
-    console.log(signUpForm);
   };
 
   const handleSignUpFormSubmit = async (e) => {
