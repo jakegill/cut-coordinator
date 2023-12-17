@@ -6,6 +6,7 @@ import BarberHome from "./pages/Barber/Home/Barber";
 import BarberSettings from "./pages/Barber/Settings/Settings";
 import Schedule from "./pages/Barber/Schedule/Schedule";
 import Profile from "./pages/Barber/Profile/Profile";
+import EditProfile from "./pages/Barber/Profile/EditProfile";
 import {
   PrivateRouteClient,
   PrivateRouteBarber,
@@ -32,6 +33,7 @@ function App() {
           <Route index element={<BarberHome />} />
           <Route path="schedule" element={<Schedule />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="profile/edit" element={<EditProfile />} />
           <Route path="settings" element={<BarberSettings />} />
         </Route>
       </Routes>

@@ -19,5 +19,27 @@
   font-size: 0.8rem;
   font-weight: 600;
   margin: 0;
-  padding: 0 0 0 4vw;
+  padding: 0vw 0 0 3vw;
+}
+
+.barber-today {
+  height: 20vh;
+  background-color: var(--dark);
+  margin: 2vh 4vw 2vh 4vw;
+  border-radius: 12px;
+  color: var(--lightest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.barber-requests {
+  height: 46vh;
+  background-color: var(--dark);
+  margin: 2vh 4vw 2vh 4vw;
+  border-radius: 12px;
+  color: var(--lightest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -3,7 +3,7 @@
   background-color: var(--darkest);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
+  grid-template-rows: 0.05fr 0.2fr auto;
 }
 
 .schedule-title {
@@ -13,11 +13,34 @@
   align-items: center;
   justify-content: center;
 }
-
-.schedule-subtitle {
+.month-year {
   color: var(--lightest);
   font-size: 0.8rem;
   font-weight: 600;
-  margin: 0;
-  padding: 0 0 0 4vw;
+  text-align: center;
+  padding: 2vh 0 2vh 0;
+}
+
+.day {
+  color: var(--lightest);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vh;
+}
+
+.week-days {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 6vw;
+}
+
+.active {
+  background-color: var(--primary);
+  color: var(--darkest);
+  border-radius: 50%;
+  padding: 3px;
 }

@@ -9,9 +9,10 @@ export default function Profile() {
   return (
     <>
       <section className="profile-container">
-        <h2 className="profile-title">Profile</h2>
-        <img className="profile-img" src={user.profilePicture} alt="avatar" />
-        <h3 className="profile-name">{`${user.firstName} ${user.lastName}`}</h3>
+        <header className="profile-header">
+          <img className="profile-img" src={user.profilePicture} alt="avatar" />
+          <h3 className="profile-name">{`${user.firstName} ${user.lastName}`}</h3>
+        </header>
         <div>
           <h4 className="profile-subtitle">ADDRESS</h4>
           {user.address ? <p>{user.address}</p> : null}
@@ -28,7 +29,9 @@ export default function Profile() {
           <h4 className="profile-subtitle">PORTFOLIO</h4>
           {user.portfolio ? <p>{user.portfolio}</p> : null}
         </div>
-        <Link className="profile-edit-button">Edit Profile</Link>
+        <Link to="edit" className="profile-edit-button">
+          Edit Profile
+        </Link>
       </section>
       <NavbarBarber />
     </>

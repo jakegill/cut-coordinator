@@ -3,17 +3,14 @@
   background-color: var(--darkest);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.15fr 0.05fr auto;
+  grid-template-rows: 0.2fr auto;
 }
 
-.profile-title {
+.profile-header {
   width: 100%;
   color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 2vh 0 0 0;
+  text-align: center;
+  padding: 2vh 0 2vh 0;
 }
 
 .profile-img {
