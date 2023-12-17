@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarClient from "../../../components/NavbarClient/NavbarClient";
 import { useSelector } from "react-redux";
 import "./Search.css";
 
@@ -16,7 +16,7 @@ export default function Search() {
         />
         <main></main>
       </section>
-      <Navbar></Navbar>
+      <NavbarClient></NavbarClient>
     </>
   );
 }

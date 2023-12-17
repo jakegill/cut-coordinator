@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarClient from "../../../components/NavbarClient/NavbarClient";
 import "./Settings.css";
 import { Link } from "react-router-dom";
 
@@ -35,7 +35,7 @@ export default function Settings() {
           </div>
         </ul>
       </section>
-      <Navbar></Navbar>
+      <NavbarClient></NavbarClient>
     </>
   );
 }

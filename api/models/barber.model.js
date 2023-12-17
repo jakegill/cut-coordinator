@@ -25,10 +25,26 @@ const barberSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    location: {
+      type: String,
+      required: false,
+    },
     profilePicture: {
       type: String,
       required: false,
     },
+    portfolio: [
+      {
+        type: String,
+        required: false,
+      },
+    ],
+    services: [
+      {
+        type: String,
+        required: false,
+      },
+    ],
     clients: [
       {
         type: Schema.Types.ObjectId,

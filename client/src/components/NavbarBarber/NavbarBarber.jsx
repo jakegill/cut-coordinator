@@ -1,11 +1,10 @@
-import "./Navbar.css";
+import "./NavbarBarber.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-export default function Navbar() {
+export default function NavbarBarber() {
   return (
     <nav className="nav-container">
-      <Link className="nav-link" to="/client">
+      <Link className="nav-link" to="/barber">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -18,7 +17,7 @@ export default function Navbar() {
           <path d="M 16 2.59375 L 15.28125 3.28125 L 2.28125 16.28125 L 3.71875 17.71875 L 5 16.4375 L 5 28 L 14 28 L 14 18 L 18 18 L 18 28 L 27 28 L 27 16.4375 L 28.28125 17.71875 L 29.71875 16.28125 L 16.71875 3.28125 Z M 16 5.4375 L 25 14.4375 L 25 26 L 20 26 L 20 16 L 12 16 L 12 26 L 7 26 L 7 14.4375 Z"></path>
         </svg>
       </Link>
-      <Link className="nav-link" to="/client/appointments">
+      <Link className="nav-link" to="/barber/schedule">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -36,20 +35,24 @@ export default function Navbar() {
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
       </Link>
-      <Link className="nav-link" to="/client/search">
+      <Link className="nav-link" to="/barber/profile">
         <svg
-          fill="var(--lightest)"
           xmlns="http://www.w3.org/2000/svg"
-          x="0px"
-          y="0px"
-          width="28"
-          height="28"
-          viewBox="0 0 48 48"
+          width="24"
+          height="24"
+          viewBox="0 0 20 20"
+          id="profile"
         >
-          <path d="M 20.5 6 C 12.515556 6 6 12.515562 6 20.5 C 6 28.484438 12.515556 35 20.5 35 C 23.773158 35 26.788919 33.893018 29.220703 32.050781 L 38.585938 41.414062 A 2.0002 2.0002 0 1 0 41.414062 38.585938 L 32.050781 29.220703 C 33.893017 26.788918 35 23.773156 35 20.5 C 35 12.515562 28.484444 6 20.5 6 z M 20.5 10 C 26.322685 10 31 14.677319 31 20.5 C 31 23.295711 29.914065 25.820601 28.148438 27.697266 A 2.0002 2.0002 0 0 0 27.701172 28.144531 C 25.824103 29.912403 23.29771 31 20.5 31 C 14.677315 31 10 26.322681 10 20.5 C 10 14.677319 14.677315 10 20.5 10 z"></path>
+          <g fill="none" fill-rule="evenodd">
+            <g fill="var(--lightest)" transform="translate(-380 -2159)">
+              <g transform="translate(56 160)">
+                <path d="M334 2011c3.785 0 6.958 2.214 7.784 6h-15.568c.826-3.786 3.999-6 7.784-6m-4-6c0-2.206 1.794-4 4-4s4 1.794 4 4-1.794 4-4 4-4-1.794-4-4m7.758 4.673A5.983 5.983 0 0 0 340 2005a6 6 0 1 0-9.758 4.673c-3.659 1.375-6.242 4.772-6.242 9.327h20c0-4.555-2.583-7.952-6.242-9.327"></path>
+              </g>
+            </g>
+          </g>
         </svg>
       </Link>
-      <Link className="nav-link" to="/client/settings">
+      <Link className="nav-link" to="/barber/settings">
         <svg
           fill="var(--lightest)"
           xmlns="http://www.w3.org/2000/svg"

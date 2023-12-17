@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarClient from "../../../components/NavbarClient/NavbarClient";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Appointments.css";
@@ -32,7 +32,7 @@ export default function Appointments() {
         </ul>
         <main></main>
       </section>
-      <Navbar></Navbar>
+      <NavbarClient></NavbarClient>
     </>
   );
 }

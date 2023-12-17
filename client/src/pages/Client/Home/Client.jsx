@@ -1,4 +1,4 @@
-import Navbar from "../../../components/Navbar/Navbar";
+import NavbarClient from "../../../components/NavbarClient/NavbarClient";
 import { useSelector } from "react-redux";
 import "./Client.css";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ export default function ClientHome() {
           </div>
         </main>
       </section>
-      <Navbar />
+      <NavbarClient />
     </>
   );
 }
