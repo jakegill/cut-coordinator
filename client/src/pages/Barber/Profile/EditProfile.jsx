@@ -2,14 +2,19 @@ import NavbarBarber from "../../../components/NavbarBarber/NavbarBarber";
 import "./EditProfile.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function EditProfile() {
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [service, setService] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState(null);
+  const email = useSelector((state) => state.auth.email);
+  const [location, setLocation] = useState({
+    address: "",
+    city: "",
+    state: "",
+  });
+  const [service, setService] = useState({
+    service: "",
+    price: "",
+  });
   const [schedule, setSchedule] = useState({
     days: {
       Sunday: false,
@@ -23,19 +28,51 @@ export default function EditProfile() {
     startTime: "",
     endTime: "",
   });
+  const [image, setImage] = useState(null);
 
+  const updateBarberDetails = async (details) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/editBarber/${email}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(details),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to update barber details");
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  // -------Submit forms ------
   const handleAddressSubmit = (e) => {
     e.preventDefault();
-    // Handle address submission logic here
-    console.log("Address submitted:", { address, city, state });
+    updateBarberDetails(location);
   };
 
   const handleServiceSubmit = (e) => {
     e.preventDefault();
-    // Handle service submission logic here
-    console.log("Service submitted:", service);
+    updateBarberDetails(service);
   };
 
+  const handleScheduleSubmit = (e) => {
+    e.preventDefault();
+    updateBarberDetails(schedule);
+  };
+
+  const handleImageUpload = (e) => {
+    e.preventDefault();
+    // Handle image upload logic here
+  };
+
+  // -------Change forms ------
   const handleScheduleChange = (day) => {
     setSchedule({
       ...schedule,
@@ -53,21 +90,6 @@ export default function EditProfile() {
     });
   };
 
-  const handleScheduleSubmit = (e) => {
-    e.preventDefault();
-    // Handle schedule submission logic here
-    console.log("Schedule submitted:", schedule);
-  };
-
-  const handleImageUpload = (e) => {
-    e.preventDefault();
-    // Handle image upload logic here
-    // For now, we just log the file object
-    if (image) {
-      console.log("Image file:", image);
-    }
-  };
-
   const handleImageChange = (e) => {
     // Assuming single file upload, access the first file in the array
     setImage(e.target.files[0]);
@@ -76,7 +98,9 @@ export default function EditProfile() {
   return (
     <>
       <section className="edit-profile-container">
-        <Link className="return" to="/barber/profile">Return</Link>
+        <Link className="return" to="/barber/profile">
+          Return
+        </Link>
         <form onSubmit={handleAddressSubmit}>
           <h2 className="form-title">Edit Address</h2>
           <div className="address-form">
@@ -84,23 +108,29 @@ export default function EditProfile() {
               className="input-address"
               type="text"
               placeholder="Address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              value={location.address}
+              onChange={(e) =>
+                setLocation({ ...location, address: e.target.value })
+              }
             />
             <div className="city-state">
               <input
                 className="input-city-state"
                 type="text"
                 placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                value={location.city}
+                onChange={(e) =>
+                  setLocation({ ...location, city: e.target.value })
+                }
               />
               <input
                 className="input-city-state"
                 type="text"
                 placeholder="State"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
+                value={location.state}
+                onChange={(e) =>
+                  setLocation({ ...location, state: e.target.value })
+                }
               />
             </div>
             <button className="submit-button" type="submit">
@@ -117,15 +147,19 @@ export default function EditProfile() {
                 className="input-service"
                 type="text"
                 placeholder="Service"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
+                value={service.service}
+                onChange={(e) =>
+                  setService({ ...service, service: e.target.value })
+                }
               />
               <input
                 className="input-service"
                 type="text"
                 placeholder="Price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                value={service.price}
+                onChange={(e) =>
+                  setService({ ...service, price: e.target.value })
+                }
               />
             </div>
             <button className="submit-button" type="submit">
@@ -137,44 +171,44 @@ export default function EditProfile() {
         <form className="schedule-form" onSubmit={handleScheduleSubmit}>
           <h2 className="form-title">Edit Schedule</h2>
           <div className="schedule-container">
-          <div className="days-container">
-            {Object.keys(schedule.days).map((day) => (
-              <div className="input-day" key={day}>
-                <input
-                  type="checkbox"
-                  id={day}
-                  checked={schedule.days[day]}
-                  onChange={() => handleScheduleChange(day)}
-                />
-                <label htmlFor={day}>{day}</label>
-              </div>
-            ))}
-          </div>
-          <div className="time-container">
-            <label className="time-label" htmlFor="startTime">
-              From
-            </label>
-            <input
-              className="input-time"
-              type="time"
-              name="startTime"
-              value={schedule.startTime}
-              onChange={handleTimeChange}
-            />
-            <label className="time-label" htmlFor="endTime">
-              To
-            </label>
-            <input
-              className="input-time"
-              type="time"
-              name="endTime"
-              value={schedule.endTime}
-              onChange={handleTimeChange}
-            />
-          </div>
-          <button className="submit-button" type="submit">
-            Submit
-          </button>
+            <div className="days-container">
+              {Object.keys(schedule.days).map((day) => (
+                <div className="input-day" key={day}>
+                  <input
+                    type="checkbox"
+                    id={day}
+                    checked={schedule.days[day]}
+                    onChange={() => handleScheduleChange(day)}
+                  />
+                  <label htmlFor={day}>{day}</label>
+                </div>
+              ))}
+            </div>
+            <div className="time-container">
+              <label className="time-label" htmlFor="startTime">
+                From
+              </label>
+              <input
+                className="input-time"
+                type="time"
+                name="startTime"
+                value={schedule.startTime}
+                onChange={handleTimeChange}
+              />
+              <label className="time-label" htmlFor="endTime">
+                To
+              </label>
+              <input
+                className="input-time"
+                type="time"
+                name="endTime"
+                value={schedule.endTime}
+                onChange={handleTimeChange}
+              />
+            </div>
+            <button className="submit-button" type="submit">
+              Submit
+            </button>
           </div>
         </form>
 
@@ -186,7 +220,9 @@ export default function EditProfile() {
             onChange={handleImageChange}
             accept="image/*" // Accept only image files
           />
-          <button className="image-button" type="submit">Upload Image</button>
+          <button className="image-button" type="submit">
+            Upload Image
+          </button>
         </form>
       </section>
       <NavbarBarber />

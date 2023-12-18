@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./routes/auth.route.js";
+import editBarberRoute from "./routes/editBarber.route.js";
+
 dotenv.config();
 
 const app = express();
@@ -20,6 +22,7 @@ app.listen(3000, () => console.log("Server running on port 3000"));
 
 // Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/editBarber", editBarberRoute);
 
 //Middleware
 app.use((err, req, res, next) => {
