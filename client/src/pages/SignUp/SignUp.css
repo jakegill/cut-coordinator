@@ -49,7 +49,7 @@
   text-align: center;
 }
 
-.active {
+.tab-active {
   border-bottom: 3px solid var(--primary);
 }
 

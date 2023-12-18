@@ -1,5 +1,5 @@
 import "./SignIn.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../../../redux/auth/authSlice.js";
@@ -9,6 +9,14 @@ export default function SignIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
+
+  useEffect(() => {
+    if (state.auth.accountType === "barber") {
+      navigate("/barber");
+    } else if (state.auth.accountType === "client") {
+      navigate("/client");
+    }
+  }, []);
 
   const handleLoginFormChange = (e) => {
     setLoginForm({
@@ -44,7 +52,7 @@ export default function SignIn() {
       <section className="signin-section">
         <h1 className="signin-title">Cut Coordinator</h1>
         <ul className="signin-ul">
-          <Link className="signin-tab active" name="login" to="/signin">
+          <Link className="signin-tab tab-active" name="login" to="/signin">
             LOG IN
           </Link>
           <Link className="signin-tab" name="signup" to="/signup">

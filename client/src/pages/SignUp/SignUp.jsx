@@ -51,7 +51,7 @@ export default function SignUp() {
           <Link className="signup-tab" name="signin" to="/signin">
             LOG IN
           </Link>
-          <Link className="signup-tab active" name="signup" to="/signup">
+          <Link className="signup-tab tab-active" name="signup" to="/signup">
             SIGN UP
           </Link>
         </ul>

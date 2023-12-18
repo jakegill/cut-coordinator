@@ -18,13 +18,13 @@ export default function Appointments() {
         </div>
         <ul className="appointments-tab">
           <li
-            className={currentTab === "upcoming" ? "active" : ""}
+            className={currentTab === "upcoming" ? "tab-active" : ""}
             onClick={handleChangeTab}
           >
             Upcoming
           </li>
           <li
-            className={currentTab === "past" ? "active" : ""}
+            className={currentTab === "past" ? "tab-active" : ""}
             onClick={handleChangeTab}
           >
             Past
