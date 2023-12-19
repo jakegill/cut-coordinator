@@ -37,7 +37,6 @@ export default function SignIn() {
         body: JSON.stringify(loginForm),
       });
       const data = await response.json();
-      console.log(data);
       if (response.ok) {
         dispatch(signIn(data));
         navigate(state.auth.accountType === "client" ? "/client" : "/barber");

@@ -50,3 +50,28 @@
   font-size: 1rem;
   font-weight: 600;
 }
+
+.profile-address {
+  color: var(--light);
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0 0 0 4vw;
+}
+
+.profile-schedule {
+  color: var(--light);
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0 0 0 4vw;
+}
+
+.profile-services {
+  color: var(--light);
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0 0 0 4vw;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4vw;
+}
