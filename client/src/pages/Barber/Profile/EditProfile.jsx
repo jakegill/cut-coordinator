@@ -11,7 +11,7 @@ export default function EditProfile() {
     city: "",
     state: "",
   });
-  const [service, setService] = useState({
+  const [services, setServices] = useState({
     service: "",
     price: "",
   });
@@ -59,7 +59,7 @@ export default function EditProfile() {
 
   const handleServiceSubmit = (e) => {
     e.preventDefault();
-    updateBarberDetails({ service: { ...service }, email });
+    updateBarberDetails({ services: { ...services }, email });
   };
 
   const handleScheduleSubmit = (e) => {
@@ -147,18 +147,18 @@ export default function EditProfile() {
                 className="input-service"
                 type="text"
                 placeholder="Service"
-                value={service.service}
+                value={services.service}
                 onChange={(e) =>
-                  setService({ ...service, service: e.target.value })
+                  setServices({ ...services, service: e.target.value })
                 }
               />
               <input
                 className="input-service"
                 type="text"
                 placeholder="Price"
-                value={service.price}
+                value={services.price}
                 onChange={(e) =>
-                  setService({ ...service, price: e.target.value })
+                  setServices({ ...services, price: e.target.value })
                 }
               />
             </div>
