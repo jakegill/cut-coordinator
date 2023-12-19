@@ -54,17 +54,17 @@ export default function EditProfile() {
   // -------Submit forms ------
   const handleAddressSubmit = (e) => {
     e.preventDefault();
-    updateBarberDetails(location);
+    updateBarberDetails({ location: { ...location }, email });
   };
 
   const handleServiceSubmit = (e) => {
     e.preventDefault();
-    updateBarberDetails(service);
+    updateBarberDetails({ service: { ...service }, email });
   };
 
   const handleScheduleSubmit = (e) => {
     e.preventDefault();
-    updateBarberDetails(schedule);
+    updateBarberDetails({ schedule: { ...schedule }, email });
   };
 
   const handleImageUpload = (e) => {

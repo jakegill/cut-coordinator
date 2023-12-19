@@ -26,8 +26,18 @@ const barberSchema = new mongoose.Schema(
       required: true,
     },
     location: {
-      type: String,
-      required: false,
+      address: {
+        type: String,
+        required: false,
+      },
+      city: {
+        type: String,
+        required: false,
+      },
+      state: {
+        type: String,
+        required: false,
+      },
     },
     profilePicture: {
       type: String,
@@ -41,8 +51,14 @@ const barberSchema = new mongoose.Schema(
     ],
     services: [
       {
-        type: String,
-        required: false,
+        service: {
+          type: String,
+          required: false,
+        },
+        price: {
+          type: String,
+          required: false,
+        },
       },
     ],
     clients: [
@@ -51,6 +67,25 @@ const barberSchema = new mongoose.Schema(
         ref: "Client",
       },
     ],
+    schedule: {
+      days: {
+        Sunday: { type: Boolean, required: false },
+        Monday: { type: Boolean, required: false },
+        Tuesday: { type: Boolean, required: false },
+        Wednesday: { type: Boolean, required: false },
+        Thursday: { type: Boolean, required: false },
+        Friday: { type: Boolean, required: false },
+        Saturday: { type: Boolean, required: false },
+      },
+      startTime: {
+        type: String,
+        required: false,
+      },
+      endTime: {
+        type: String,
+        required: false,
+      },
+    },
   },
   { timestamps: true }
 );
