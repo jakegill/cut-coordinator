@@ -52,7 +52,7 @@ export default function SignIn() {
         <h1 className="signin-title">Cut Coordinator</h1>
         <ul className="signin-ul">
           <Link className="signin-tab tab-active" name="login" to="/signin">
-            LOG IN
+            SIGN IN
           </Link>
           <Link className="signin-tab" name="signup" to="/signup">
             SIGN UP
@@ -74,7 +74,7 @@ export default function SignIn() {
             onChange={handleLoginFormChange}
           />
           <button className="signin-form-submit" type="submit">
-            LOG IN
+            SIGN IN
           </button>
         </form>
       </section>

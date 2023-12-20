@@ -24,4 +24,28 @@
   background-color: var(--dark);
   align-self: center;
   justify-self: center;
+  color: var(--light);
+}
+
+.search-bar:focus {
+  outline: 1px solid var(--primary);
+}
+
+.barber-search-container {
+  width: 100%;
+  gap: 2vw;
+  padding: 2vh 0 2vh 0;
+  height: 71vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  overflow-y: scroll;
+}
+
+.barber-card {
+  height: 14vh;
+  margin-inline: 6vw;
+  color: var(--light);
+  padding: 2vw;
+  background-color: var(--dark);
 }

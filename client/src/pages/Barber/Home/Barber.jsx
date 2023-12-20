@@ -7,7 +7,7 @@ export default function Barber() {
 
   return (
     <>
-      <section className="barber-container">
+      <section className="barber-home-container">
         <h2 className="barber-title">Home</h2>
         <div>
           <h4 className="barber-subtitle">TODAYS SCHEDULE</h4>

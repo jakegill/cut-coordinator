@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "cut-coordinator-408715",
+  "private_key_id": "94a6e1705d1b79ed8b9d13ab10c57576e4b3a75e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkp4EVuoCibVSs\nVYQUxbB472DWB4I0UpdwxoCkz0iJngQ8Ecf5Uqo3PBB1SUVWzGRCoSVmBM1qGjHu\nnkxnfQciscASo7UtODZAjtrzQhWS4SCX7uzU2ohFSePnb9HXIGQsnVFp/G7k32ja\nOqoUG4FIX0oEB+yo0uq1iD6RkP5Hk/J1fwIk7XVgCTLtCq60GvMpXKr1X6kuRcP3\nTOLepW+7SoPRIVNDvIPZr5qSavEdZS65GWlHQZc+vTcmcqXaBDggg5v+d0W+pYQg\nzU5GLvwD/UAFNvGqjafTcJz2VmDStKkODm4FvEUSFxIwg9+asA10uMC7fBjE8jcr\njbI4aI3rAgMBAAECggEACZHWtc2WJlqWXkHGIHLw88Zt6WKcVbArLxnKZknJ3H27\nn0YlSj9ct0MdbcOpbQcKGLlG9Cv5SF5nYof+xtEEdibAlBTBtfQbaxsibJr9qAC/\npTT0vNZKr0RBI7VjC87NI66tCazrQRAfBvf75JlIpU0sfxl6zsEbdRuLD2jO7pf5\nxELIE/UHIEmrmY3J85UpLOB85RoADNyiMTN8c5ak/IJ0GcL7WWC9LECWcMaCjnBx\nEMrhuh7f+uvhMbIpyXkCk/vfAsZYDGZYcWEfnyf83BLDCQivusVt/7QmF5pR0nbE\nLrM7eCaW45PVSwQWbX+YBzzMt/hTy6x7k7eqPMU7cQKBgQDdFwymiq9AWRvvl4Xm\nC62osIxDm9vJBkiD6RGZM9KrWBsBtKM7NozMm+0HB2QE01RkZb3tKpRUpofZ0bHc\nExyKauZoxEMEYy0QjaYTEz4cCjbGqTrIHmXb8AqRdiSsZojqePqutPNdlWWfDGVg\ne3v7Fw8cDzwCMXl9KeXuDKM8wwKBgQC+pzKNsOKpnSc0dztKR5IjSVHdMe+aEPUu\ndTe/v7gL40G/hq14EcAtu1Kxj6r1XbDZTCtlMYnVhxRbaRftFhdTlQ36Qfn/LGXH\nImfAhfh37oJzdWinZk5SokNPvB374WlU9xuIPtYB45vzlo0GpL8o0zkjT3+d3kG7\nifB9XtF3uQKBgGVTrwSVAwTm0hrYwxFPwONTJrXFtNFJA+sQ4nPogGDvHFGHzFfT\nBGyx+cwC4yAjCsaIqqcLoLe7Kv/1TyKhz67Ql5DkgiJ8oaa4hKixZQHM3JXn8XzO\nEbjfJrjMALrSs2Vi1OFFJVR6p/xg3gV+ErBdPRuLD+GhcyCeFzcmq5mpAoGALha3\nNt+S+9Pc3WcRczR4FIWt/54JwSHmU5PMpVMQh/cpNsa0+ri3z5ZgOEJ13pkGnpE2\nUGE4Y+Eiv7JZMVxMyUzYMy5t5Az0kb40fKsmVL/Y01aHtSgbOQi24vij+vcUApE2\nG6qtC4ndcnZrozaCa7kcL/gQ7rYDB/Yhp/0bACkCgYB3kh3CriiJDfoNdDlZZihs\nsgDe0QzuNeDx24oRAPtEuEB/W+je7cJPCjgOoySXBV+cNS//L+JzT1Zy7TxxQuxl\niS3AdN/JbAbUE/dZkeda42OAgmwk/ZvbPIziCyOF3NXMptBjqF6vDEKzOq+qyxQo\nWHvSCKogPBvdnnq3iyr/Vg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cut-coordinator@cut-coordinator-408715.iam.gserviceaccount.com",
+  "client_id": "116447927037716110008",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cut-coordinator%40cut-coordinator-408715.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

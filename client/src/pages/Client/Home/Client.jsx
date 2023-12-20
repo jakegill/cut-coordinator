@@ -25,7 +25,7 @@ export default function ClientHome() {
             {user.barbers.length === 0 ? (
               <>
                 <div className="no-barbers-container">
-                  <p className="no-barbers">No barbers found!</p>
+                  <p className="no-barbers">No saved barbers!</p>
                   <Link className="no-barbers-button" to="/client/search">
                     Find A Barber
                   </Link>

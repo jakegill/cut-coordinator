@@ -29,6 +29,7 @@ export default function EditProfile() {
     endTime: "",
   });
   const [image, setImage] = useState(null);
+  const [profilePicture, setProfilePicture] = useState(null);
 
   const updateBarberDetails = async (details) => {
     try {
@@ -67,9 +68,50 @@ export default function EditProfile() {
     updateBarberDetails({ schedule: { ...schedule }, email });
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     e.preventDefault();
-    // Handle image upload logic here
+    const formData = new FormData();
+    formData.append("file", image);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/gcs/${email}/uploadImg`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to upload image");
+      }
+      const result = await response.json();
+      console.log("Image uploaded:", result.imgUrl);
+      setImage(null);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  const handleProfilePictureUpload = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("file", profilePicture);
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/gcs/${email}/uploadProfileImg`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to upload profile picture");
+      }
+      const result = await response.json();
+      console.log("Profile picture uploaded:", result.imgUrl);
+      setProfilePicture(null);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   // -------Change forms ------
@@ -91,8 +133,11 @@ export default function EditProfile() {
   };
 
   const handleImageChange = (e) => {
-    // Assuming single file upload, access the first file in the array
     setImage(e.target.files[0]);
+  };
+
+  const handleProfilePictureChange = (e) => {
+    setProfilePicture(e.target.files[0]);
   };
 
   return (
@@ -222,6 +267,19 @@ export default function EditProfile() {
           />
           <button className="image-button" type="submit">
             Upload Image
+          </button>
+        </form>
+
+        <form className="photo-form" onSubmit={handleProfilePictureUpload}>
+          <h2 className="form-title">Edit Profile Picture</h2>
+          <input
+            className="input-file"
+            type="file"
+            onChange={handleProfilePictureChange}
+            accept="image/*" // Accept only image files
+          />
+          <button className="image-button" type="submit">
+            Change Profile Picture
           </button>
         </form>
       </section>

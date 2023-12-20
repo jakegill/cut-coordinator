@@ -91,13 +91,20 @@ export default function Profile() {
         </div>
         <div>
           <h4 className="profile-subtitle">PORTFOLIO</h4>
-          {barberProfile.portfolio ? (
-            <ul>
-              {barberProfile.portfolio.map((item, index) => (
-                <li key={index}>{item}</li>
+          {barberProfile.portfolio && barberProfile.portfolio.length > 0 ? (
+            <div className="profile-portfolio">
+              {barberProfile.portfolio.map((imageUrl, index) => (
+                <img
+                  key={index}
+                  src={imageUrl}
+                  alt={`Portfolio image ${index + 1}`}
+                  className="portfolio-image"
+                />
               ))}
-            </ul>
-          ) : null}
+            </div>
+          ) : (
+            <p>No portfolio images available.</p>
+          )}
         </div>
         <Link to="edit" className="profile-edit-button">
           Edit Profile

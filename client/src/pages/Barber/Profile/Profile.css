@@ -21,6 +21,12 @@
   justify-self: center;
 }
 
+.profile-img-plus {
+  position: fixed;
+  background-color: var(--primary);
+  color: var(--darkest);
+}
+
 .profile-name {
   color: var(--light);
   font-size: 1rem;
@@ -74,4 +80,28 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4vw;
+}
+
+.profile-portfolio {
+  display: flex;
+  gap: 2vw;
+  overflow-x: auto;
+  padding: 2vh 4vw 2vh 4vw;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #999 #fff; /* For Firefox */
+}
+
+/* For Chrome, Safari, and Opera */
+.profile-portfolio::-webkit-scrollbar {
+  width: 12px;
+}
+
+.profile-portfolio::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+}
+
+.portfolio-image {
+  height: 12vh;
+  width: auto;
 }
