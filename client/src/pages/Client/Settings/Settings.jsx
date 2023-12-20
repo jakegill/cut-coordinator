@@ -16,8 +16,8 @@ export default function Settings() {
               viewBox="0 0 24 24"
               id="logout"
               fill="hsl(0, 83%, 44%)"
-              height="24"
-              width="24"
+              height="20"
+              width="20"
             >
               <g data-name="Layer 2">
                 <g data-name="log-out">

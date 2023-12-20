@@ -97,7 +97,7 @@ export default function EditProfile() {
     formData.append("file", profilePicture);
     try {
       const response = await fetch(
-        `http://localhost:3000/api/gcs/${email}/uploadProfileImg`,
+        `http://localhost:3000/api/gcs/${email}/uploadBarberProfileImg`,
         {
           method: "POST",
           body: formData,

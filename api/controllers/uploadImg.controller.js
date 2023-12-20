@@ -20,13 +20,29 @@ export const uploadImgGCSPortfolio = async (req, res, next) => {
   }
 };
 
-export const uploadImgGCSProfile = async (req, res, next) => {
+export const uploadImgGcsBarberProfile = async (req, res, next) => {
   try {
     const file = req.file;
     const email = req.params.email;
     const imgUrl = await uploadImg(file, email);
 
     const updatedBarber = await Barber.findOneAndUpdate(
+      { email: email },
+      { profilePicture: imgUrl }
+    );
+    res.status(200).json({ imgUrl });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const uploadImgGcsClientProfile = async (req, res, next) => {
+  try {
+    const file = req.file;
+    const email = req.params.email;
+    const imgUrl = await uploadImg(file, email);
+
+    const updatedBarber = await Client.findOneAndUpdate(
       { email: email },
       { profilePicture: imgUrl }
     );

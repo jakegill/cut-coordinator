@@ -18,6 +18,15 @@
   list-style: none;
 }
 
+.settings-li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh 2vw 1vh 2vw;
+  color: var(--lightest);
+  font-size: 1.2rem;
+}
+
 .sign-out {
   display: flex;
   align-content: center;

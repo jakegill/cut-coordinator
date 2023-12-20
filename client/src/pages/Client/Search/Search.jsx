@@ -28,9 +28,7 @@ export default function Search() {
   return (
     <>
       <section className="search-container">
-        <div className="search-title">
-          <h2>Search</h2>
-        </div>
+        <div className="search-title"></div>
         <input
           type="text"
           className="search-bar"
@@ -39,12 +37,36 @@ export default function Search() {
         <main className="barber-search-container">
           {barbers.map((barber) => (
             <div className="barber-card" key={barber._id}>
-              <h3>{`${barber.firstName} ${barber.lastName}`}</h3>
-              <p>
-                {barber.location
-                  ? `${barber.location.city}, ${barber.location.state}`
-                  : "Location not available"}
-              </p>
+              <div className="barber-card-top-container">
+                <img
+                  className="barber-card-pfp"
+                  src={`${barber.profilePicture}`}
+                  alt=""
+                />
+                <div>
+                  <h3 className="barber-card-name">{`${barber.firstName} ${barber.lastName}`}</h3>
+                  <p className="barber-card-location">
+                    {barber.location
+                      ? `${barber.location.city}, ${barber.location.state}`
+                      : "Location unavailable"}
+                  </p>
+                </div>
+              </div>
+              <div className="barber-card-portfolio">
+                {barber.portfolio && barber.portfolio.length > 0 ? (
+                  barber.portfolio.map((imageUrl, index) => (
+                    <img
+                      key={index}
+                      src={imageUrl}
+                      alt={`Portfolio image ${index + 1}`}
+                      className="barber-portfolio-image"
+                    />
+                  ))
+                ) : (
+                  <p>No portfolio images available.</p>
+                )}
+              </div>
+              <button className="barber-card-button">BOOK APPOINTMENT</button>
             </div>
           ))}
         </main>

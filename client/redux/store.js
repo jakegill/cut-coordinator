@@ -3,11 +3,12 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; //localstorage
 import authReducer from "./auth/authSlice";
 import barberProfileReducer from "./profile/barberSlice";
+import clientProfileReducer from "./profile/clientSlice";
 
 const rootReducer = combineReducers({
-  // ... your other reducers here ...
   auth: authReducer,
   barberProfile: barberProfileReducer,
+  clientProfile: clientProfileReducer,
 });
 
 const persistConfig = {

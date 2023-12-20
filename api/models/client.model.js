@@ -31,8 +31,8 @@ const clientSchema = new mongoose.Schema(
     },
     barbers: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Barber",
+        type: String, //emails
+        required: false,
       },
     ],
   },
