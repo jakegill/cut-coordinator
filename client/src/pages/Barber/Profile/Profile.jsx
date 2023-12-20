@@ -20,6 +20,7 @@ export default function Profile() {
       }
       const barberData = await response.json();
       const dispatchData = {
+        profilePicture: barberData.profilePicture,
         location: {
           address: barberData.location?.address,
           city: barberData.location?.city,
@@ -58,7 +59,11 @@ export default function Profile() {
     <>
       <section className="profile-container">
         <header className="profile-header">
-          <img className="profile-img" src={auth.profilePicture} alt="avatar" />
+          <img
+            className="profile-img"
+            src={barberProfile.profilePicture}
+            alt="avatar"
+          />
           <h3 className="profile-name">{`${auth.firstName} ${auth.lastName}`}</h3>
         </header>
         <div>

@@ -5,8 +5,6 @@ const initialState = {
   lastName: null,
   email: null,
   accountType: null,
-  barbers: null,
-  clients: null,
 };
 
 export const authSlice = createSlice({
@@ -18,18 +16,12 @@ export const authSlice = createSlice({
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
       state.accountType = action.payload.accountType;
-      state.profilePicture = action.payload.profilePicture;
-      state.barbers = action.payload?.barbers;
-      state.clients = action.payload?.clients;
     },
     signOut: (state) => {
       state.firstName = null;
       state.lastName = null;
       state.email = null;
       state.accountType = null;
-      state.profilePicture = null;
-      state.barbers = null;
-      state.clients = null;
     },
   },
 });

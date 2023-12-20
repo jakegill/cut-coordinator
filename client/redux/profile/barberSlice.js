@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  profilePicture: "",
   location: {
     address: "",
     city: "",
@@ -33,6 +34,7 @@ export const barberProfileSlice = createSlice({
       state.services = action.payload.services;
       state.schedule = action.payload.schedule;
       state.portfolio = action.payload.portfolio;
+      state.profilePicture = action.payload.profilePicture;
     },
   },
 });
