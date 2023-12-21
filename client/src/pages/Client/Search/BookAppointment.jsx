@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./BookAppointment.css";
-import { set } from "mongoose";
 
 export default function BookAppointment() {
   const currentClient = useSelector((state) => state.auth);
@@ -19,29 +18,32 @@ export default function BookAppointment() {
   };
 
   const handleAppointmentSubmit = async () => {
-    if (selectedService && selectedTime) {
-      try {
-        const response = await fetch(
-          "http://localhost:3000/api/appointments/createAppointment",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              barberEmail: barber.email,
-              clientEmail: currentClient.email,
-              clientFirstName: currentClient.firstName,
-              clientLastName: currentClient.lastName,
-              service: selectedService,
-              time: selectedTime,
-              day: activeDay,
-            }),
-          }
-        );
-      } catch (error) {
-        console.error("Error:", error);
-      }
+    console.log(
+      selectedDate,
+      selectedService,
+      selectedTime,
+      barber.email,
+      currentClient.email
+    );
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/appointments/createAppointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            barberEmail: barber.email,
+            clientEmail: currentClient.email,
+            service: selectedService,
+            time: selectedTime,
+            day: selectedDate,
+          }),
+        }
+      );
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 

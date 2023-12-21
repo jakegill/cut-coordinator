@@ -86,6 +86,26 @@ const barberSchema = new mongoose.Schema(
         required: false,
       },
     },
+    appointments: [
+      {
+        clientEmail: {
+          type: String,
+          required: false,
+        },
+        service: {
+          type: String,
+          required: false,
+        },
+        time: {
+          type: String,
+          required: false,
+        },
+        day: {
+          type: String,
+          required: false,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

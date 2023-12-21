@@ -35,6 +35,26 @@ const clientSchema = new mongoose.Schema(
         required: false,
       },
     ],
+    appointments: [
+      {
+        barberEmail: {
+          type: String,
+          required: false,
+        },
+        date: {
+          type: String,
+          required: false,
+        },
+        time: {
+          type: String,
+          required: false,
+        },
+        service: {
+          type: String,
+          required: false,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );

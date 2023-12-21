@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.route.js";
 import editBarberRoute from "./routes/editBarber.route.js";
 import getAllBarbersRoute from "./routes/getAllBarbers.route.js";
 import uploadImgRoute from "./routes/uploadImg.route.js";
+import appointmentsRoute from "./routes/appointments.route.js";
 dotenv.config();
 
 const app = express();
@@ -30,6 +31,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/editBarber", editBarberRoute);
 app.use("/api/barbers", getAllBarbersRoute);
 app.use("/api/gcs", upload.single("file"), uploadImgRoute);
+app.use("/api/appointments", appointmentsRoute);
 
 //Middleware
 app.use((err, req, res, next) => {
