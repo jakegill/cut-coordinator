@@ -1,10 +1,15 @@
 import NavbarClient from "../../../components/NavbarClient/NavbarClient";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Search.css";
 
 export default function Search() {
   const [barbers, setBarbers] = useState([]);
+  const navigate = useNavigate();
+
+  const handleBookAppointmentClick = (barber) => {
+    navigate("/client/search/book", { state: { barber } });
+  };
 
   const fetchBarbers = async () => {
     try {
@@ -66,7 +71,13 @@ export default function Search() {
                   <p>No portfolio images available.</p>
                 )}
               </div>
-              <button className="barber-card-button">BOOK APPOINTMENT</button>
+              {console.log(barber)}
+              <button
+                onClick={() => handleBookAppointmentClick(barber)}
+                className="barber-card-button"
+              >
+                BOOK APPOINTMENT
+              </button>
             </div>
           ))}
         </main>

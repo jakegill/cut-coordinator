@@ -34,11 +34,9 @@ export default function ClientHome() {
   return (
     <>
       <section className="client-container">
-        <div className="client-title">
-          <h2>Home</h2>
-        </div>
-        <img className="client-img" src={profile.profilePicture} alt="avatar" />
         <h3 className="client-name">{`${auth.firstName} ${auth.lastName}`}</h3>
+        <img className="client-img" src={profile.profilePicture} alt="avatar" />
+
         <main>
           <header className="client-main-header">
             <h3 className="client-subtitle">MY BARBERS</h3>

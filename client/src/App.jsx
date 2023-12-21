@@ -15,6 +15,7 @@ import ClientHome from "./pages/Client/Home/Client";
 import ClientSettings from "./pages/Client/Settings/Settings";
 import Appointments from "./pages/Client/Appointments/Appointments";
 import Search from "./pages/Client/Search/Search";
+import BookAppointment from "./pages/Client/Search/BookAppointment";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="settings" element={<ClientSettings />} />
           <Route path="appointments" element={<Appointments />} />
           <Route path="search" element={<Search />} />
+          <Route path="search/book" element={<BookAppointment />} />
         </Route>
         <Route path="/barber" element={<PrivateRouteBarber />}>
           <Route index element={<BarberHome />} />
