@@ -69,3 +69,8 @@
 .appointment-time {
   font-weight: 600;
 }
+
+.no-appointment {
+  text-align: center;
+  color: var(--light);
+}

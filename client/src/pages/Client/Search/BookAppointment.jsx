@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./BookAppointment.css";
 
 //TODO: default value for selected service, time, date
@@ -118,6 +119,8 @@ export default function BookAppointment() {
 
   return (
     <>
+    <div className="book-container">
+      <Link className="book-return" to="/client/search">Return</Link>
       <header className="book-header">
         <img className="book-pfp" src={barber.profilePicture} alt="" />
         <div>
@@ -191,7 +194,7 @@ export default function BookAppointment() {
                   </div>
                 );
               } else {
-                return <p key={day}>No available appointments</p>;
+                return <p className="book-none" key={day}>No available appointments</p>;
               }
             }
             return null;
@@ -201,6 +204,7 @@ export default function BookAppointment() {
           Schedule Appointment
         </button>
       </main>
+      </div>
     </>
   );
 }

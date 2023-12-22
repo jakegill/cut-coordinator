@@ -1,10 +1,16 @@
+.book-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5vh 12vh 83vh
+}
+
 .book-header {
   display: flex;
   align-items: center;
   padding: 2vw;
   background-color: var(--dark);
   gap: 2vw;
-  height: 8vh;
 }
 
 .book-pfp {
@@ -34,7 +40,6 @@
 .book-main-container {
   background-color: var(--darkest);
   padding: 2vw;
-  height: 87.5vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.4fr 0.4fr 0.4fr 0.2fr;
@@ -54,6 +59,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   align-content: center;
+  overflow-y: scroll;
 }
 .book-service {
   display: flex;
@@ -82,4 +88,15 @@
   color: var(--light);
   outline: none;
   font-size: 1rem;
+}
+
+.book-return {
+  background-color: var(--darkest);
+  display: block;
+  padding: 2vw;
+}
+
+.book-none {
+  text-align: center;
+  color: var(--light);
 }
