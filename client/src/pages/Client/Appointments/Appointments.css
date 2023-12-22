@@ -33,3 +33,39 @@
 .active {
   border-bottom: 2px solid var(--primary);
 }
+
+.appointment-profile-picture {
+  width: 8vh;
+  height: 8vh;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.appointment-card-container {
+  overflow-y: scroll;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(auto, 25vh);
+  gap: 1vh;
+}
+
+.appointment-pfp-name-container {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+
+.appointment-card {
+  height: 20vh;
+  margin-inline: 6vw;
+  color: var(--light);
+  padding: 3vw;
+  background-color: var(--dark);
+  display: grid;
+  gap: 1vh;
+}
+
+.appointment-time {
+  font-weight: 600;
+}

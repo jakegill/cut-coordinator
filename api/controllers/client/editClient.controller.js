@@ -4,7 +4,7 @@ export async function editClient(req, res, next) {
   const { email, profilePicture, barbers } = req.body;
 
   let updateData = {};
-  console.log(updateData);
+
   if (profilePicture) {
     updateData.profilePicture = profilePicture;
   }

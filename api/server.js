@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import multer from "multer";
 import auth from "./routes/auth.route.js";
+import client from "./routes/client.route.js";
 import barber from "./routes/barber.route.js";
 import gcs from "./routes/uploadImg.route.js";
 import appointments from "./routes/appointments.route.js";

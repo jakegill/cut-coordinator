@@ -81,6 +81,7 @@
   height: 8vh;
   width: auto;
   border-radius: 50%;
+  object-fit: cover;
   margin: 0;
   padding: 0;
 }
@@ -88,6 +89,7 @@
 .barber-card-portfolio {
   display: flex;
   align-items: center;
+  object-fit: cover;
   gap: 2vw;
   overflow-x: scroll;
 }
