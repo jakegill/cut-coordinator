@@ -34,7 +34,7 @@ export default function EditProfile() {
   const updateBarberDetails = async (details) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/editBarber/${email}`,
+        `http://localhost:3000/api/barber/${email}`,
         {
           method: "PATCH",
           headers: {

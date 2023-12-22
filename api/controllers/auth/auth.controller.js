@@ -1,5 +1,5 @@
-import Barber from "../models/barber.model.js";
-import Client from "../models/client.model.js";
+import Barber from "../../models/barber.model.js";
+import Client from "../../models/client.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 

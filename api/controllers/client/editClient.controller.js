@@ -1,6 +1,6 @@
-import Client from "../models/client.model.js";
+import Client from "../../models/client.model.js";
 
-export async function editBarber(req, res, next) {
+export async function editClient(req, res, next) {
   const { email, profilePicture, barbers } = req.body;
 
   let updateData = {};

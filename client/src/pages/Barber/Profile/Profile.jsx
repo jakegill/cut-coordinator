@@ -13,7 +13,7 @@ export default function Profile() {
   const fetchBarberData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/editBarber/${auth.email}`
+        `http://localhost:3000/api/barber/${auth.email}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch barber details");

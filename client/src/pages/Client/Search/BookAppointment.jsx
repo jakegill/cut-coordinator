@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./BookAppointment.css";
 
+//TODO: default value for selected service, time, date
+
 export default function BookAppointment() {
   const currentClient = useSelector((state) => state.auth);
   const location = useLocation();
@@ -27,7 +29,7 @@ export default function BookAppointment() {
     );
     try {
       const response = await fetch(
-        "http://localhost:3000/api/appointments/createAppointment",
+        "http://localhost:3000/api/appointments/create",
         {
           method: "POST",
           headers: {
@@ -38,7 +40,7 @@ export default function BookAppointment() {
             clientEmail: currentClient.email,
             service: selectedService,
             time: selectedTime,
-            day: selectedDate,
+            date: selectedDate,
           }),
         }
       );

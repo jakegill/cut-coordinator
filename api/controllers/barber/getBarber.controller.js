@@ -1,4 +1,4 @@
-import Barber from "../models/barber.model.js";
+import Barber from "../../models/barber.model.js";
 
 export async function getBarber(req, res, next) {
   try {

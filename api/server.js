@@ -3,35 +3,33 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import multer from "multer";
-import authRoutes from "./routes/auth.route.js";
-import editBarberRoute from "./routes/editBarber.route.js";
-import getAllBarbersRoute from "./routes/getAllBarbers.route.js";
-import uploadImgRoute from "./routes/uploadImg.route.js";
-import appointmentsRoute from "./routes/appointments.route.js";
+import auth from "./routes/auth.route.js";
+import barber from "./routes/barber.route.js";
+import gcs from "./routes/uploadImg.route.js";
+import appointments from "./routes/appointments.route.js";
 dotenv.config();
+
+//TODO: change patches to posts
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Multer config
 const upload = multer({ storage: multer.memoryStorage() });
 
-// Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
-//Start server
 app.listen(3000, () => console.log("Server running on port 3000"));
 
 // Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/editBarber", editBarberRoute);
-app.use("/api/barbers", getAllBarbersRoute);
-app.use("/api/gcs", upload.single("file"), uploadImgRoute);
-app.use("/api/appointments", appointmentsRoute);
+app.use("/api/auth", auth);
+app.use("/api/barber", barber);
+app.use("/api/client", client);
+app.use("/api/gcs", upload.single("file"), gcs); //google cloud storage for images
+app.use("/api/appointments", appointments);
 
 //Middleware
 app.use((err, req, res, next) => {

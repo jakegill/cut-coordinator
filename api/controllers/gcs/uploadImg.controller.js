@@ -1,5 +1,5 @@
-import { uploadImg } from "../storage/storage.js";
-import Barber from "../models/barber.model.js";
+import { uploadImg } from "../../storage/storage.js";
+import Barber from "../../models/barber.model.js";
 
 export const uploadImgGCSPortfolio = async (req, res, next) => {
   try {
@@ -46,7 +46,9 @@ export const uploadImgGcsClientProfile = async (req, res, next) => {
       { email: email },
       { profilePicture: imgUrl }
     );
-    res.status(200).json({ imgUrl });
+    res
+      .status(200)
+      .json({ messgage: "Success uploading barber profile picture to GCS." });
   } catch (err) {
     next(err);
   }

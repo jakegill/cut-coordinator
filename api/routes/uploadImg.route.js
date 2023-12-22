@@ -2,7 +2,7 @@ import express from "express";
 import {
   uploadImgGCSPortfolio,
   uploadImgGcsBarberProfile,
-} from "../controllers/uploadImg.controller.js";
+} from "../controllers/gcs/uploadImg.controller.js";
 
 const router = express.Router();
 

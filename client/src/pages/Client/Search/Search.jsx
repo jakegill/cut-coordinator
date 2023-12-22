@@ -14,7 +14,7 @@ export default function Search() {
   const fetchBarbers = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/barbers/getAllBarbers"
+        "http://localhost:3000/api/barber/getAllBarbers"
       );
       if (!response.ok) {
         throw new Error("Failed to fetch barbers");
