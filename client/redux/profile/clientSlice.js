@@ -10,7 +10,7 @@ export const clientProfileSlice = createSlice({
   initialState,
   reducers: {
     setClientProfile: (state, action) => {
-      barbers = action.payload.barbers;
+      state.barbers = action.payload.barbers;
       state.profilePicture = action.payload.profilePicture;
     },
   },

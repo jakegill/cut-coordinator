@@ -1,5 +1,6 @@
 import { uploadImg } from "../../storage/storage.js";
 import Barber from "../../models/barber.model.js";
+import Client from "../../models/client.model.js";
 
 export const uploadImgGCSPortfolio = async (req, res, next) => {
   try {
@@ -42,13 +43,13 @@ export const uploadImgGcsClientProfile = async (req, res, next) => {
     const email = req.params.email;
     const imgUrl = await uploadImg(file, email);
 
-    const updatedBarber = await Client.findOneAndUpdate(
+    const updatedClient = await Client.findOneAndUpdate(
       { email: email },
       { profilePicture: imgUrl }
     );
     res
       .status(200)
-      .json({ messgage: "Success uploading barber profile picture to GCS." });
+      .json({ messgage: "Success uploading client profile picture to GCS." });
   } catch (err) {
     next(err);
   }

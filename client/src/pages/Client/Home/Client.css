@@ -3,7 +3,7 @@
   background-color: var(--darkest);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
+  grid-template-rows: 8vh 22vh 60vh;
 }
 
 .client-title {
@@ -20,6 +20,14 @@
   border-radius: 50%;
   align-self: center;
   justify-self: center;
+  height: 20vh;
+  width: 20vh;
+  object-fit: cover;
+}
+
+.client-img:hover {
+  cursor: pointer;
+  border: 1px solid var(--primary);
 }
 
 .client-name {
@@ -45,9 +53,8 @@
 }
 
 .no-barbers {
-  color: var(--lightest);
+  color: var(--light);
   font-size: 1.2rem;
-  font-weight: 600;
 }
 
 .no-barbers-container {
@@ -58,14 +65,12 @@
 }
 
 .no-barbers-button {
-  background-color: var(--primary);
-  color: var(--darkest);
-  border: none;
+  background-color: var(--dark);
+  color: var(--primary);
+  border: 1px solid var(--primary);
   border-radius: 5px;
   padding: 1vh 2vw 1vh 2vw;
   font-size: 1rem;
-  font-weight: 600;
-  margin: 2vh 0 2vh 0;
 }
 
 .no-barbers-button:hover {
@@ -75,4 +80,55 @@
 
 a:hover {
   cursor: pointer;
+}
+
+.dialog-container {
+  height: 20vh;
+  width: 60vw;
+  background-color: var(--dark);
+  outline: none;
+  border: 1px solid var(--light);
+  overflow-x: hidden;
+}
+
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vh;
+  margin-top: 3vh;
+
+}
+
+.dialog-close {
+  
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ef233c;
+}
+
+.dialog-close:hover {
+  cursor: pointer;
+  color: #d90429;
+}
+
+.dialog-input {
+  color: var(--light);
+  font-size: 1rem;
+}
+
+.dialog-label {
+  color: var(--light);
+  font-size: 1rem;
+}
+
+.dialog-submit {
+  background-color: var(--dark);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 1vh 2vw 1vh 2vw;
+  font-size: 1rem;
+  font-weight: 600;
+
 }
