@@ -1,46 +1,54 @@
 .schedule-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.2fr auto;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.05fr 0.2fr auto;
 }
 
 .schedule-title {
-  width: 100%;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .month-year {
-  color: var(--lightest);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: center;
-  padding: 2vh 0 2vh 0;
+	color: var(--light);
+	font-size: 0.8rem;
+	font-weight: 600;
+	text-align: center;
+	padding: 2vh 0 2vh 0;
 }
 
 .day {
-  color: var(--lightest);
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2vh;
+	color: var(--light);
+	font-size: 0.8rem;
+	font-weight: 600;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2vh;
 }
 
 .week-days {
-  display: flex;
-  justify-content: space-between;
-  padding-inline: 6vw;
+	display: flex;
+	justify-content: space-between;
+	padding-inline: 6vw;
 }
 
 .active {
-  background-color: var(--primary);
-  color: var(--darkest);
-  border-radius: 50%;
-  padding: 3px;
+	background-color: var(--primary);
+	color: var(--darkest);
+	border-radius: 50%;
+	padding: 3px;
+}
+
+.calendar-navigate-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4vw;
+	height: 10vw;
 }
