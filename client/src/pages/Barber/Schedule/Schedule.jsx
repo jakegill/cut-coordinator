@@ -1,10 +1,13 @@
 import NavbarBarber from "../../../components/NavbarBarber/NavbarBarber";
 import "./Schedule.css";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Schedule() {
+	const barberProfile = useSelector((state) => state.barberProfile);
 	const [activeDay, setActiveDay] = useState(new Date().getDay());
 	const [currentDate, setCurrentDate] = useState(new Date());
+	console.log(barberProfile);
 
 	const getWeekDates = (date) => {
 		const dayOfWeek = date.getDay();
