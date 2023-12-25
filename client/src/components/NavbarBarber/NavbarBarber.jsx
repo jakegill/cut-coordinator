@@ -23,9 +23,9 @@ export default function NavbarBarber() {
           viewBox="0 0 24 24"
           fill="none"
           stroke="var(--lightest)"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           width="28"
           height="28"
         >
@@ -43,7 +43,7 @@ export default function NavbarBarber() {
           viewBox="0 0 20 20"
           id="profile"
         >
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
             <g fill="var(--lightest)" transform="translate(-380 -2159)">
               <g transform="translate(56 160)">
                 <path d="M334 2011c3.785 0 6.958 2.214 7.784 6h-15.568c.826-3.786 3.999-6 7.784-6m-4-6c0-2.206 1.794-4 4-4s4 1.794 4 4-1.794 4-4 4-4-1.794-4-4m7.758 4.673A5.983 5.983 0 0 0 340 2005a6 6 0 1 0-9.758 4.673c-3.659 1.375-6.242 4.772-6.242 9.327h20c0-4.555-2.583-7.952-6.242-9.327"></path>

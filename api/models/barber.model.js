@@ -63,8 +63,8 @@ const barberSchema = new mongoose.Schema(
     ],
     clients: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Client",
+        type: String,
+        required: false,
       },
     ],
     schedule: {

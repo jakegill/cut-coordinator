@@ -79,7 +79,7 @@
 
 .barber-card-pfp {
   height: 8vh;
-  width: auto;
+  width: 8vh;
   border-radius: 50%;
   object-fit: cover;
   margin: 0;
@@ -89,7 +89,7 @@
 .barber-card-portfolio {
   display: flex;
   align-items: center;
-  object-fit: cover;
+  
   gap: 2vw;
   overflow-x: scroll;
 }
@@ -98,6 +98,7 @@
   height: 10vh;
   width: 10vh;
   border: 1px solid var(--light);
+  object-fit: cover;
   margin: 0;
   padding: 0;
 }

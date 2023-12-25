@@ -21,13 +21,7 @@ export default function BookAppointment() {
   };
 
   const handleAppointmentSubmit = async () => {
-    console.log(
-      selectedDate,
-      selectedService,
-      selectedTime,
-      barber.email,
-      currentClient.email
-    );
+
     try {
       const response = await fetch(
         "http://localhost:3000/api/appointments/create",

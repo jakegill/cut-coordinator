@@ -20,13 +20,17 @@ export default async function createAppointment(req, res, next) {
       {
         email: barberEmail,
       },
-      { $push: { appointments: barberAppointment } },
+      { $push: { appointments: barberAppointment },
+        $addToSet: { clients: clientEmail },
+      },
       { new: true }
     );
 
     const addAppointmentClient = await Client.findOneAndUpdate(
       { email: clientEmail },
-      { $push: { appointments: clientAppointment } },
+      { $push: { appointments: clientAppointment },
+        $addToSet: { barbers: barberEmail }, 
+      },
       { new: true }
     );
 

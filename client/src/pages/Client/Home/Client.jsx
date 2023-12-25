@@ -1,7 +1,7 @@
 import NavbarClient from "../../../components/NavbarClient/NavbarClient";
 import { useSelector } from "react-redux";
 import "./Client.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setClientProfile } from "../../../../redux/profile/clientSlice";
@@ -10,7 +10,9 @@ export default function ClientHome() {
   const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.clientProfile);
   const [profilePicture, setProfilePicture] = useState(null);
+  const [savedBarbers, setSavedBarbers] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlePfpClick = () => { //open modal
     const dialog = document.querySelector("dialog");
@@ -51,10 +53,17 @@ export default function ClientHome() {
       setProfilePicture(null);
     } catch (error) {
       console.error("Error:", error);
-      
     }
-
   };
+
+  const handleBookAppointmentClick = (barber) => {
+    navigate("/client/search/book", { state: { barber } });
+  };
+
+  const handleUnsaveBlick = (e) => {
+    
+  }
+
 
   const fetchClientData = async () => {
     try {
@@ -75,8 +84,21 @@ export default function ClientHome() {
     }
   };
 
+  const fetchSavedBarbersData = async () => {
+    try {
+      const barberDataPromises = profile.barbers.map(barberEmail =>
+        fetch(`http://localhost:3000/api/barber/${barberEmail}`).then(res => res.json())
+      );
+      const barberData = await Promise.all(barberDataPromises);
+      setSavedBarbers(barberData);
+    } catch (error) {
+      console.log(error);
+    }
+  } 
+
   useEffect(() => {
     fetchClientData();
+    fetchSavedBarbersData();
   }, []);
 
   return (
@@ -98,11 +120,8 @@ export default function ClientHome() {
         <main>
           <header className="client-main-header">
             <h3 className="client-subtitle">MY BARBERS</h3>
-            <Link to="/client/search" className="client-link">
-              FIND BARBERS
-            </Link>
           </header>
-          <div className="client-barbers">
+          <div >
             {profile.barbers.length === 0 ? (
               <>
                 <div className="no-barbers-container">
@@ -112,7 +131,51 @@ export default function ClientHome() {
                   </Link>
                 </div>
               </>
-            ) : null}
+            ) : 
+            <div className="client-barbers-container">
+            {savedBarbers.map((barber) => (
+              <div className="barber-card-client-home" key={barber._id}>
+                <div className="barber-card-top-container">
+                  <img
+                    className="barber-card-pfp"
+                    src={`${barber.profilePicture}`}
+                    alt=""
+                  />
+                  <div>
+                    <h3 className="barber-card-name">{`${barber.firstName} ${barber.lastName}`}</h3>
+                    <p className="barber-card-location">
+                      {barber.location
+                        ? `${barber.location.city}, ${barber.location.state}`
+                        : "Location unavailable"}
+                    </p>
+                  </div>
+                </div>
+                <div className="barber-card-portfolio">
+                  {barber.portfolio && barber.portfolio.length > 0 ? (
+                    barber.portfolio.map((imageUrl, index) => (
+                      <img
+                        key={index}
+                        src={imageUrl}
+                        alt={`Portfolio image ${index + 1}`}
+                        className="barber-portfolio-image"
+                      />
+                    ))
+                  ) : (
+                    <p>No portfolio images available.</p>
+                  )}
+                </div>
+                {console.log(barber)}
+                <button
+                  onClick={() => handleBookAppointmentClick(barber)}
+                  className="barber-card-button"
+                >
+                  BOOK APPOINTMENT
+                </button>
+                <button className="client-button-remove">UNSAVE BARBER</button>
+              </div>
+            ))}
+          </div>
+            }
           </div>
         </main>
       </section>
