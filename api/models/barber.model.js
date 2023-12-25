@@ -88,6 +88,14 @@ const barberSchema = new mongoose.Schema(
 		},
 		appointments: [
 			{
+				clientFirstName: {
+					type: String,
+					required: false,
+				},
+				clientLastName: {
+					type: String,
+					required: false,
+				},
 				clientEmail: {
 					type: String,
 					required: false,

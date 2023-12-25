@@ -2,9 +2,19 @@ import Barber from "../../models/barber.model.js";
 import Client from "../../models/client.model.js";
 
 export default async function createAppointment(req, res, next) {
-	const { barberEmail, clientEmail, date, time, service } = req.body;
+	const {
+		barberEmail,
+		clientEmail,
+		clientFirstName,
+		clientLastName,
+		date,
+		time,
+		service,
+	} = req.body;
 	const barberAppointment = {
 		clientEmail,
+		clientFirstName,
+		clientLastName,
 		date,
 		time,
 		service,

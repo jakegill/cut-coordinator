@@ -28,6 +28,8 @@ const initialState = {
 			time: "",
 			client: "",
 			service: "",
+			firstName: "",
+			lastName: "",
 		},
 	],
 	clients: [],

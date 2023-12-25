@@ -1,110 +1,110 @@
 .profile-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr auto;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.2fr auto;
 }
 
 .profile-header {
-  width: 100%;
-  color: var(--lightest);
-  text-align: center;
-  padding: 2vh 0 2vh 0;
+	width: 100%;
+	color: var(--lightest);
+	text-align: center;
+	padding: 2vh 0 2vh 0;
 }
 
 .profile-img {
-  justify-self: flex-start;
-  border: 1px solid var(--light);
-  border-radius: 50%;
-  height: 10vh;
-  width: 10vh;
-  object-fit: cover;
-  align-self: center;
-  justify-self: center;
+	justify-self: flex-start;
+	border: 1px solid var(--light);
+	border-radius: 50%;
+	height: 10vh;
+	width: 10vh;
+	object-fit: cover;
+	align-self: center;
+	justify-self: center;
 }
 
 .profile-img-plus {
-  position: fixed;
-  background-color: var(--primary);
-  color: var(--darkest);
+	position: fixed;
+	background-color: var(--primary);
+	color: var(--darkest);
 }
 
 .profile-name {
-  color: var(--light);
-  font-size: 1rem;
-  font-weight: 600;
-  justify-self: center;
-  margin: 0;
-  align-self: center;
+	color: var(--light);
+	font-size: 1rem;
+	font-weight: 600;
+	justify-self: center;
+	margin: 0;
+	align-self: center;
 }
 
 .profile-subtitle {
-  color: var(--lightest);
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0 0 0 4vw;
+	color: var(--lightest);
+	font-size: 0.8rem;
+	font-weight: 600;
+	margin: 0;
+	padding: 0 0 0 4vw;
 }
 
 .profile-edit-button {
-  justify-self: center;
-  background-color: var(--primary);
-  color: var(--darkest);
-  height: 3vh;
-  width: 22vw;
-  border: none;
-  border-radius: 5px;
-  padding: 1vh 2vw 1vh 2vw;
-  font-size: 1rem;
-  font-weight: 600;
+	justify-self: center;
+	background-color: var(--primary);
+	color: var(--darkest);
+	height: 3vh;
+	width: 22vw;
+	border: none;
+	border-radius: 5px;
+	padding: 1vh 2vw 1vh 2vw;
+	font-size: 1rem;
+	font-weight: 600;
 }
 
 .profile-address {
-  color: var(--light);
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0 0 0 4vw;
+	color: var(--light);
+	font-size: 0.8rem;
+	margin: 0;
+	padding: 0 0 0 4vw;
 }
 
 .profile-schedule {
-  color: var(--light);
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0 0 0 4vw;
+	color: var(--light);
+	font-size: 0.8rem;
+	margin: 0;
+	padding: 0 0 0 4vw;
 }
 
 .profile-services {
-  color: var(--light);
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0 0 0 4vw;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4vw;
+	color: var(--light);
+	font-size: 0.8rem;
+	margin: 0;
+	padding: 0 0 0 4vw;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4vw;
 }
 
 .profile-portfolio {
-  display: flex;
-  gap: 2vw;
-  overflow-x: auto;
-  padding: 2vh 4vw 2vh 4vw;
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #999 #fff; /* For Firefox */
+	display: flex;
+	gap: 2vw;
+	overflow-x: auto;
+	padding: 2vh 4vw 2vh 4vw;
+	scrollbar-width: thin; /* For Firefox */
+	scrollbar-color: #999 #fff; /* For Firefox */
 }
 
 /* For Chrome, Safari, and Opera */
 .profile-portfolio::-webkit-scrollbar {
-  width: 12px;
+	width: 12px;
 }
 
 .profile-portfolio::-webkit-scrollbar-thumb {
-  background-color: #999;
-  border-radius: 6px;
+	background-color: #999;
+	border-radius: 6px;
 }
 
 .portfolio-image {
-  height: 12vh;
-  width: auto;
+	height: 12vh;
+	width: auto;
 }
