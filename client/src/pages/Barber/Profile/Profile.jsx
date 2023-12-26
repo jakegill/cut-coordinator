@@ -41,13 +41,23 @@ export default function Profile() {
 					<h3 className='profile-name'>{`${auth.firstName} ${auth.lastName}`}</h3>
 				</header>
 				<div>
-					<h4 className='profile-subtitle'>ADDRESS</h4>
+					<div className='subtitle-container'>
+						<h4 className='profile-subtitle'>ADDRESS</h4>
+						<Link to='edit/address' className='subtitle-edit'>
+							EDIT ADDRESS
+						</Link>
+					</div>
 					{barberProfile.location ? (
 						<address className='profile-address'>{`${barberProfile.location.address}, ${barberProfile.location.city}, ${barberProfile.location.state}`}</address>
 					) : null}
 				</div>
 				<div>
-					<h4 className='profile-subtitle'>SCHEDULE</h4>
+					<div className='subtitle-container'>
+						<h4 className='profile-subtitle'>SCHEDULE</h4>
+						<Link to='edit/schedule' className='subtitle-edit'>
+							EDIT SCHEDULE
+						</Link>
+					</div>
 					{barberProfile.schedule ? (
 						<time className='profile-schedule'>
 							{Object.entries(barberProfile.schedule.days)
@@ -59,7 +69,12 @@ export default function Profile() {
 					) : null}
 				</div>
 				<div>
-					<h4 className='profile-subtitle'>SERVICES</h4>
+					<div className='subtitle-container'>
+						<h4 className='profile-subtitle'>SERVICES</h4>
+						<Link to='edit/services' className='subtitle-edit'>
+							EDIT SERVICES
+						</Link>
+					</div>
 					{barberProfile.services ? (
 						<ul className='profile-services'>
 							{barberProfile.services.map((service, index) => (
@@ -69,7 +84,12 @@ export default function Profile() {
 					) : null}
 				</div>
 				<div>
-					<h4 className='profile-subtitle'>PORTFOLIO</h4>
+					<div className='subtitle-container'>
+						<h4 className='profile-subtitle'>PORTFOLIO</h4>
+						<Link to='edit/portfolio' className='subtitle-edit'>
+							EDIT PORTFOLIO
+						</Link>
+					</div>
 					{barberProfile.portfolio && barberProfile.portfolio.length > 0 ? (
 						<div className='profile-portfolio'>
 							{barberProfile.portfolio.map((imageUrl, index) => (
@@ -85,9 +105,6 @@ export default function Profile() {
 						<p>No portfolio images available.</p>
 					)}
 				</div>
-				<Link to='edit' className='profile-edit-button'>
-					Edit Profile
-				</Link>
 			</section>
 			<NavbarBarber />
 		</>

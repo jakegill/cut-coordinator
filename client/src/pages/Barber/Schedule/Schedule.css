@@ -62,7 +62,7 @@
 .schedule-appointment-card {
 	display: grid;
 	grid-template-columns: 1fr;
-	height: 18vh;
+	height: 16vh;
 	background-color: var(--dark);
 	color: var(--light);
 	margin-inline: 4vw;

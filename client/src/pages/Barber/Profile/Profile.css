@@ -1,9 +1,10 @@
 .profile-container {
 	height: 90vh;
+	width: 100vw;
 	background-color: var(--darkest);
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 0.2fr auto;
+	grid-template-rows: 20vh auto;
 }
 
 .profile-header {
@@ -88,7 +89,7 @@
 .profile-portfolio {
 	display: flex;
 	gap: 2vw;
-	overflow-x: auto;
+	overflow-x: scroll;
 	padding: 2vh 4vw 2vh 4vw;
 	scrollbar-width: thin; /* For Firefox */
 	scrollbar-color: #999 #fff; /* For Firefox */
@@ -106,5 +107,18 @@
 
 .portfolio-image {
 	height: 12vh;
-	width: auto;
+	width: 12vw;
+	object-fit: cover;
+}
+
+.subtitle-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.subtitle-edit {
+	padding-right: 4vw;
+	font-weight: 600;
+	font-size: 0.8rem;
 }
