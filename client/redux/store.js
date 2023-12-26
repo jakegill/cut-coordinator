@@ -6,25 +6,25 @@ import barberProfileReducer from "./profile/barberSlice";
 import clientProfileReducer from "./profile/clientSlice";
 
 const rootReducer = combineReducers({
-  auth: authReducer,
-  barberProfile: barberProfileReducer,
-  clientProfile: clientProfileReducer,
+	auth: authReducer,
+	barberProfile: barberProfileReducer,
+	clientProfile: clientProfileReducer,
 });
 
 const persistConfig = {
-  key: "root",
-  storage,
-  whitelist: ["auth", "barberProfile", "clientProfile"],
+	key: "root",
+	storage,
+	whitelist: ["auth", "barberProfile", "clientProfile"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export const persistor = persistStore(store);

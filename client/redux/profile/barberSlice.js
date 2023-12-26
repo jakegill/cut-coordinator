@@ -48,9 +48,10 @@ export const barberProfileSlice = createSlice({
 			state.appointments = action.payload.appointments;
 			state.clients = action.payload.clients;
 		},
+		reset: (state) => initialState,
 	},
 });
 
-export const { setBarberProfile } = barberProfileSlice.actions;
+export const { reset, setBarberProfile } = barberProfileSlice.actions;
 
 export default barberProfileSlice.reducer;
