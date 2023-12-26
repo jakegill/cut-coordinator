@@ -63,7 +63,6 @@ export default function Schedule() {
 	};
 
 	const selectedDayAppointments = getFormattedAppointments(activeDay);
-	console.log(selectedDayAppointments);
 	return (
 		<>
 			<section className='schedule-container'>

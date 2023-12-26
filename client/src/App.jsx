@@ -19,6 +19,7 @@ import EditAddress from "./pages/Barber/Profile/Edit/EditAddress";
 import EditPortfolio from "./pages/Barber/Profile/Edit/EditPortfolio";
 import EditSchedule from "./pages/Barber/Profile/Edit/EditSchedule";
 import EditServices from "./pages/Barber/Profile/Edit/EditServices";
+import EditPFP from "./pages/Barber/Profile/Edit/EditPFP";
 
 function App() {
 	return (
@@ -42,6 +43,7 @@ function App() {
 					<Route path='profile/edit/portfolio' element={<EditPortfolio />} />
 					<Route path='profile/edit/schedule' element={<EditSchedule />} />
 					<Route path='profile/edit/services' element={<EditServices />} />
+					<Route path='profile/edit/pfp' element={<EditPFP />} />
 					<Route path='settings' element={<BarberSettings />} />
 				</Route>
 			</Routes>

@@ -1,56 +1,58 @@
-import { uploadImg } from "../../storage/storage.js";
+import { uploadImg } from "../../storage/storage.js"; //gcs
 import Barber from "../../models/barber.model.js";
 import Client from "../../models/client.model.js";
 
-export const uploadImgGCSPortfolio = async (req, res, next) => {
-  try {
-    //GCS
-    const file = req.file;
-    const email = req.params.email;
-    const imgUrl = await uploadImg(file, email);
+// Portfolio pictures
+export const uploadPortfolio = async (req, res, next) => {
+	try {
+		//GCS
+		const file = req.file;
+		const email = req.params.email;
+		const imgUrl = await uploadImg(file, email);
 
-    //MongoDB
-    const updatedBarber = await Barber.findOneAndUpdate(
-      { email: email },
-      { $push: { portfolio: imgUrl } }
-    );
+		//MongoDB
+		const updatedBarber = await Barber.findOneAndUpdate(
+			{ email: email },
+			{ $push: { portfolio: imgUrl } }
+		);
 
-    res.status(200).json({ imgUrl });
-  } catch (err) {
-    next(err);
-  }
+		res.status(200).json({ imgUrl });
+	} catch (err) {
+		next(err);
+	}
 };
 
-export const uploadImgGcsBarberProfile = async (req, res, next) => {
-  try {
-    const file = req.file;
-    const email = req.params.email;
-    const imgUrl = await uploadImg(file, email);
+// Profile pictures
+export const uploadBarberProfile = async (req, res, next) => {
+	try {
+		const file = req.file;
+		const email = req.params.email;
+		const imgUrl = await uploadImg(file, email);
 
-    const updatedBarber = await Barber.findOneAndUpdate(
-      { email: email },
-      { profilePicture: imgUrl }
-    );
-    res.status(200).json({ imgUrl });
-  } catch (err) {
-    next(err);
-  }
+		const updatedBarber = await Barber.findOneAndUpdate(
+			{ email: email },
+			{ profilePicture: imgUrl }
+		);
+		res.status(200).json({ imgUrl });
+	} catch (err) {
+		next(err);
+	}
 };
 
-export const uploadImgGcsClientProfile = async (req, res, next) => {
-  try {
-    const file = req.file;
-    const email = req.params.email;
-    const imgUrl = await uploadImg(file, email);
+export const uploadClientProfile = async (req, res, next) => {
+	try {
+		const file = req.file;
+		const email = req.params.email;
+		const imgUrl = await uploadImg(file, email);
 
-    const updatedClient = await Client.findOneAndUpdate(
-      { email: email },
-      { profilePicture: imgUrl }
-    );
-    res
-      .status(200)
-      .json({ messgage: "Success uploading client profile picture to GCS." });
-  } catch (err) {
-    next(err);
-  }
+		const updatedClient = await Client.findOneAndUpdate(
+			{ email: email },
+			{ profilePicture: imgUrl }
+		);
+		res
+			.status(200)
+			.json({ messgage: "Success uploading client profile picture to GCS." });
+	} catch (err) {
+		next(err);
+	}
 };

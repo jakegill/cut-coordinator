@@ -81,6 +81,7 @@ export default function EditServices() {
 				throw new Error("Failed to get barber services.");
 			}
 			const services = await response.json();
+			console.log(services);
 			setCurrentServices(services);
 		} catch (error) {
 			console.error(error);

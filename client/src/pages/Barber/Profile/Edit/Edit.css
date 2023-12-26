@@ -153,3 +153,37 @@ input::placeholder {
 	cursor: pointer;
 	border-bottom: 1px solid #ef233c;
 }
+
+.delete-photos-container {
+	padding-inline: 4vw;
+	height: 45vh;
+	display: grid;
+	overflow-y: scroll;
+	grid-template-columns: 1fr 1fr 1fr;
+	align-content: center;
+	gap: 2vh;
+}
+
+.delete-photo-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.delete-photo {
+	height: 12vh;
+	width: 12vh;
+	object-fit: cover;
+}
+
+.delete-photo-button {
+	color: #ef233c;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+.delete-photo-button:hover {
+	cursor: pointer;
+	border-bottom: 1px solid #ef233c;
+}

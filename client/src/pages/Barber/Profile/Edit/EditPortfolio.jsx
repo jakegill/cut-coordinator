@@ -1,12 +1,17 @@
 import NavbarBarber from "../../../../components/NavbarBarber/NavbarBarber";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function EditPortfolio() {
 	const email = useSelector((state) => state.auth.email);
 
+	const currentBarber = useSelector((state) => state.barberProfile);
+
 	const [image, setImage] = useState(null);
+	const [currentPhotos, setCurrentPhotos] = useState(currentBarber.portfolio);
+
+	const redirect = useNavigate();
 
 	const handleImageChange = (e) => {
 		setImage(e.target.files[0]);
@@ -18,7 +23,7 @@ export default function EditPortfolio() {
 		formData.append("file", image);
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/gcs/${email}/uploadImg`,
+				`http://localhost:3000/api/gcs/${email}/uploadPortfolio`,
 				{
 					method: "POST",
 					body: formData,
@@ -29,7 +34,33 @@ export default function EditPortfolio() {
 			}
 			const result = await response.json();
 			console.log("Image uploaded:", result.imgUrl);
+			redirect("/barber/profile");
 			setImage(null);
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	};
+
+	const handleImageDelete = async (photo) => {
+		console.log("photo", photo);
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/gcs/${email}/deleteImg`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ photo }),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Failed to delete image");
+			}
+			const result = await response.json();
+			console.log("Image deleted:", result.imgUrl);
+			redirect("/barber/profile");
+			setCurrentPhotos(result.portfolio);
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -53,6 +84,24 @@ export default function EditPortfolio() {
 						<button className='submit-button' type='submit'>
 							Add
 						</button>
+					</div>
+					<h2 className='form-title'>Delete Photos</h2>
+					<div className='delete-photos-container'>
+						{currentPhotos.map((photo) => (
+							<div className='delete-photo-container' key={photo}>
+								<img
+									className='delete-photo'
+									src={photo}
+									alt='barber portfolio'
+								/>
+								<div
+									className='delete-photo-button'
+									onClick={() => handleImageDelete(photo)}
+								>
+									Delete
+								</div>
+							</div>
+						))}
 					</div>
 				</form>
 			</div>
