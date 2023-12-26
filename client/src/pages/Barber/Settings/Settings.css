@@ -1,15 +1,27 @@
 .settings-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
 }
 
 .settings-title {
-  width: 100%;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sign-out {
+	display: flex;
+	align-content: center;
+	gap: 2vw;
+	font-size: 1.4rem;
+	color: var(--light);
+}
+.sign-out:hover {
+	cursor: pointer;
+	color: var(--lightest);
 }

@@ -61,7 +61,30 @@ export default function ClientHome() {
 		navigate("/client/search/book", { state: { barber } });
 	};
 
-	const handleUnsaveBlick = (e) => {};
+	const handleUnsaveClick = async (barberEmail) => {
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/client/${auth.email}`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						barberEmail,
+					}),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Failed to unsave barber");
+			}
+			const updatedClientData = await response.json();
+			await fetchClientData();
+			await fetchSavedBarbersData();
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const fetchClientData = async () => {
 		try {
@@ -183,7 +206,10 @@ export default function ClientHome() {
 										>
 											BOOK APPOINTMENT
 										</button>
-										<button className='client-button-remove'>
+										<button
+											onClick={() => handleUnsaveClick(barber.email)}
+											className='client-button-remove'
+										>
 											UNSAVE BARBER
 										</button>
 									</div>
