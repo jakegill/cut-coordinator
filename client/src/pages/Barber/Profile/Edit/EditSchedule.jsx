@@ -1,5 +1,5 @@
 import NavbarBarber from "../../../../components/NavbarBarber/NavbarBarber";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -20,6 +20,8 @@ export default function EditSchedule() {
 		endTime: "",
 	});
 
+	const redirect = useNavigate();
+
 	const handleScheduleChange = (day) => {
 		setSchedule({
 			...schedule,
@@ -39,12 +41,33 @@ export default function EditSchedule() {
 
 	const handleScheduleSubmit = (e) => {
 		e.preventDefault();
-		updateBarberDetails({ schedule: { ...schedule }, email });
+		updateBarberSchedule({ schedule: { ...schedule }, email });
+		redirect("/barber/profile");
+	};
+
+	const updateBarberSchedule = async (schedule) => {
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/barber/${email}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(schedule),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Failed to update barber schedule.");
+			}
+			return await response.json();
+		} catch (error) {
+			console.error("Error:", error);
+		}
 	};
 
 	return (
 		<>
-			{" "}
 			<div className='edit-container'>
 				<Link className='return' to='/barber/profile'>
 					Return

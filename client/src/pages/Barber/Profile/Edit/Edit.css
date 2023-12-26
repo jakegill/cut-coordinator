@@ -127,3 +127,29 @@ input::placeholder {
 	border-bottom: 1px solid var(--primary);
 	height: 5vh;
 }
+
+.remove-services-container {
+	height: 38vh;
+	display: grid;
+	overflow-y: scroll;
+	grid-template-columns: 1fr;
+	gap: 2vh;
+}
+
+.remove-service {
+	display: flex;
+	color: var(--light);
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 4vw;
+}
+
+.remove-service-button {
+	color: #ef233c;
+	font-weight: 600;
+}
+
+.remove-service-button:hover {
+	cursor: pointer;
+	border-bottom: 1px solid #ef233c;
+}

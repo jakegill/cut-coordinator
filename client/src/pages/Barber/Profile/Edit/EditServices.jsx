@@ -1,19 +1,90 @@
 import NavbarBarber from "../../../../components/NavbarBarber/NavbarBarber";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 export default function EditServices() {
 	const email = useSelector((state) => state.auth.email);
 
-	const [services, setServices] = useState({
+	const [newService, setNewService] = useState({
 		service: "",
 		price: "",
 	});
 
+	const [currentServices, setCurrentServices] = useState({});
+
+	const redirect = useNavigate();
+
+	useEffect(() => {
+		fetchCurrentServices();
+	}, []);
+
+	const handleRemoveClick = async (serviceId) => {
+		await deleteBarberService(serviceId);
+		fetchCurrentServices();
+	};
 	const handleServiceSubmit = (e) => {
 		e.preventDefault();
-		updateBarberDetails({ services: { ...services }, email });
+		if (newService.service && newService.price) {
+			updateBarberServices({ services: { ...newService }, email });
+			redirect("/barber/profile");
+		}
+	};
+
+	const updateBarberServices = async (newService) => {
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/barber/${email}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(newService),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Failed to update barber services.");
+			}
+			return await response.json();
+		} catch (error) {
+			console.error("Error:", error);
+		}
+	};
+
+	const deleteBarberService = async (serviceId) => {
+		try {
+			const response = await fetch(
+				`http://localhost:3000/api/barber/${email}/service`,
+				{
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ serviceId }),
+				}
+			);
+			if (!response.ok) {
+				throw new Error("Failed to delete barber service.");
+			}
+			return await response.json();
+			fetchCurrentServices();
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	const fetchCurrentServices = async () => {
+		try {
+			const response = await fetch(`http://localhost:3000/api/barber/${email}`);
+			if (!response.ok) {
+				throw new Error("Failed to get barber services.");
+			}
+			const services = await response.json();
+			setCurrentServices(services);
+		} catch (error) {
+			console.error(error);
+		}
 	};
 
 	return (
@@ -26,21 +97,23 @@ export default function EditServices() {
 					<h2 className='form-title'>Add Services</h2>
 					<div className='inputs'>
 						<input
+							required
 							className='input-service'
 							type='text'
 							placeholder='Service'
-							value={services.service}
+							value={newService.service}
 							onChange={(e) =>
-								setServices({ ...services, service: e.target.value })
+								setNewService({ ...newService, service: e.target.value })
 							}
 						/>
 						<input
+							required
 							className='input-service'
 							type='text'
 							placeholder='Price'
-							value={services.price}
+							value={newService.price}
 							onChange={(e) =>
-								setServices({ ...services, price: e.target.value })
+								setNewService({ ...newService, price: e.target.value })
 							}
 						/>
 						<button className='submit-button' type='submit'>
@@ -48,6 +121,27 @@ export default function EditServices() {
 						</button>
 					</div>
 				</form>
+				<h2 className='form-title'>Remove Services</h2>
+				<div className='remove-services-container'>
+					{currentServices.services
+						? currentServices.services.map((service) => (
+								<div className='remove-service' key={service._id}>
+									<div>
+										<p>{service.service}</p>
+										<p>{service.price}</p>
+									</div>
+									<p
+										onClick={() => {
+											handleRemoveClick(service._id);
+										}}
+										className='remove-service-button'
+									>
+										Remove
+									</p>
+								</div>
+							))
+						: null}
+				</div>
 				<NavbarBarber />
 			</div>
 		</>

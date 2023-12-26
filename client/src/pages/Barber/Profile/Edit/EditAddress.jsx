@@ -1,5 +1,5 @@
 import NavbarBarber from "../../../../components/NavbarBarber/NavbarBarber";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import "./Edit.css";
@@ -13,21 +13,33 @@ export default function EditAddress() {
 		state: "",
 	});
 
+	const redirect = useNavigate();
+
 	const handleAddressSubmit = (e) => {
 		e.preventDefault();
-		updateBarberAddress({ location: { ...location }, email });
+		if (location.address && location.city && location.state) {
+			updateBarberLocation({
+				location: {
+					address: location.address,
+					city: location.city,
+					state: location.state,
+				},
+				email,
+			});
+			redirect("/barber/profile");
+		}
 	};
 
-	const updateBarberAddress = async (address) => {
+	const updateBarberLocation = async (location) => {
 		try {
 			const response = await fetch(
 				`http://localhost:3000/api/barber/${email}`,
 				{
-					method: "PATCH",
+					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
 					},
-					body: JSON.stringify(details),
+					body: JSON.stringify(location),
 				}
 			);
 			if (!response.ok) {

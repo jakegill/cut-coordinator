@@ -87,9 +87,11 @@
 }
 
 .profile-portfolio {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	height: 15vh;
 	gap: 2vw;
-	overflow-x: scroll;
+	overflow-y: scroll;
 	padding: 2vh 4vw 2vh 4vw;
 	scrollbar-width: thin; /* For Firefox */
 	scrollbar-color: #999 #fff; /* For Firefox */
