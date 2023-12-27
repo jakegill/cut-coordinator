@@ -71,6 +71,10 @@
 	padding: 2vh;
 }
 
+.day:hover {
+	cursor: pointer;
+}
+
 .appointment-card-text {
 	margin: 0;
 	padding: 1vh;
@@ -86,4 +90,18 @@
 .no-appointments {
 	text-align: center;
 	color: var(--light);
+}
+
+@media (min-width: 768px) {
+	.week-days {
+		padding-inline: 25vw;
+	}
+
+	.calendar-navigate-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 4vw;
+		height: 4vw;
+	}
 }

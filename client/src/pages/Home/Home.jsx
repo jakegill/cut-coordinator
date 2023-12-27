@@ -1,3 +1,12 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Home() {
-  return <h1>Home</h1>;
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		navigate("/signin");
+	}, [navigate]);
+
+	return <div></div>;
 }

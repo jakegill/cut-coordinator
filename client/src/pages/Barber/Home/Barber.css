@@ -53,3 +53,8 @@
 	font-size: 1rem;
 	color: var(--light);
 }
+@media (min-width: 768px) {
+	.barber-analytics {
+		height: 40vh;
+	}
+}

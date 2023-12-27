@@ -98,7 +98,8 @@
 	grid-template-columns: repeat(6, 1fr);
 	height: 15vh;
 	gap: 2vw;
-	overflow-y: scroll;
+	width: 90vw;
+	overflow-x: scroll;
 	padding: 2vh 4vw 2vh 4vw;
 	scrollbar-width: thin; /* For Firefox */
 	scrollbar-color: #999 #fff; /* For Firefox */
@@ -144,4 +145,24 @@
 	height: 100vh;
 	background-color: var(--darkest);
 	color: var(--primary);
+}
+
+@media (min-width: 768px) {
+	.portfolio-image {
+		height: 20vh;
+		width: auto;
+		object-fit: cover;
+	}
+
+	.profile-container {
+		height: 90vh;
+		width: 100vw;
+		background-color: var(--darkest);
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 16vh 12vh 12vh 12vh 36vh;
+	}
+	.profile-portfolio {
+		height: 25vh;
+	}
 }

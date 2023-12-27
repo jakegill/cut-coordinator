@@ -1,21 +1,37 @@
 .nav-container {
-  display: flex;
-  background-color: var(--darkest);
-  height: 10vh;
-  align-items: center;
-  justify-content: space-around;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-top: 2px solid var(--primary);
+	display: flex;
+	background-color: var(--darkest);
+	height: 10vh;
+	align-items: center;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-top: 2px solid var(--primary);
 }
 
 .nav-container a svg:hover {
-  fill: var(--primary);
+	fill: var(--primary);
 }
 
 .nav-container a:nth-child(2) svg:hover {
-  fill: none;
-  stroke: var(--primary);
+	fill: none;
+	stroke: var(--primary);
+}
+
+@media (min-width: 768px) {
+	.nav-container {
+		display: flex;
+		background-color: var(--darkest);
+		height: 10vh;
+		align-items: center;
+		justify-content: space-around;
+		padding-inline: 20vw;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border-top: 2px solid var(--primary);
+	}
 }
