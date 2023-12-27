@@ -1,45 +1,43 @@
 .barber-home-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.05fr 0.2fr 0.05fr auto;
 }
 
 .barber-title {
-  width: 100%;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .barber-subtitle {
-  color: var(--lightest);
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0vw 0 0 3vw;
+	color: var(--lightest);
+	font-size: 0.8rem;
+	font-weight: 600;
+	margin: 0;
+	padding: 0vw 0 0 3vw;
 }
 
 .barber-today {
-  height: 20vh;
-  background-color: var(--dark);
-  margin: 2vh 4vw 2vh 4vw;
-  border-radius: 12px;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	height: 20vh;
+	background-color: var(--dark);
+	margin: 2vh 4vw 2vh 4vw;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.barber-requests {
-  height: 46vh;
-  background-color: var(--dark);
-  margin: 2vh 4vw 2vh 4vw;
-  border-radius: 12px;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.barber-analytics {
+	height: 46vh;
+	background-color: var(--dark);
+	margin: 2vh 4vw 2vh 4vw;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

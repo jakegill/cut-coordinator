@@ -8,15 +8,6 @@ export default function Barber() {
 	const [activeDay, setActiveDay] = useState(new Date().getDay());
 	const barberProfile = useSelector((state) => state.barberProfile);
 
-	const getTodaysAppointments = barberProfile.appointments.filter(
-		(appointment) => {
-			const appointmentDate = new Date(appointment.date);
-			return appointmentDate.getDay() === activeDay;
-		}
-	);
-
-	console.log(getTodaysAppointments);
-
 	return (
 		<>
 			<section className='barber-home-container'>
@@ -27,7 +18,18 @@ export default function Barber() {
 				</div>
 				<div>
 					<h4 className='barber-subtitle'>ANALYTICS</h4>
-					<div className='barber-requests'>No pending requests</div>
+					<div className='barber-analytics'>
+						<div>
+							<h5>Appointments</h5>
+							<p>This week</p>
+							<p>Last week</p>
+							<p>This month</p>
+							<p>Total appointments: {barberProfile.appointments.length}</p>
+						</div>
+						<div>
+							<h5>Estimated Revenue</h5>
+						</div>
+					</div>
 				</div>
 			</section>
 			<NavbarBarber />

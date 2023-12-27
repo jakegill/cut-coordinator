@@ -36,7 +36,6 @@ export default function ClientHome() {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append("file", profilePicture);
-		console.log("formData:", formData);
 		try {
 			const response = await fetch(
 				`http://localhost:3000/api/gcs/${auth.email}/uploadClientProfile`,
@@ -78,7 +77,6 @@ export default function ClientHome() {
 			if (!response.ok) {
 				throw new Error("Failed to unsave barber");
 			}
-			const updatedClientData = await response.json();
 			await fetchClientData();
 			await fetchSavedBarbersData();
 		} catch (error) {
@@ -199,7 +197,6 @@ export default function ClientHome() {
 												<p>No portfolio images available.</p>
 											)}
 										</div>
-										{console.log(barber)}
 										<button
 											onClick={() => handleBookAppointmentClick(barber)}
 											className='barber-card-button'

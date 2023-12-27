@@ -104,6 +104,10 @@ const barberSchema = new mongoose.Schema(
 					type: String,
 					required: false,
 				},
+				price: {
+					type: String,
+					required: false,
+				},
 				time: {
 					type: String,
 					required: false,

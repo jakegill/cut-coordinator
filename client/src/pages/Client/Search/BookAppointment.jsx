@@ -10,6 +10,7 @@ export default function BookAppointment() {
 	const [barber, setBarber] = useState(location.state.barber);
 	const [activeDay, setActiveDay] = useState(null);
 	const [selectedService, setSelectedService] = useState("");
+	const [selectedServicePrice, setSelectedServicePrice] = useState("");
 	const [selectedTime, setSelectedTime] = useState("");
 	const [selectedDate, setSelectedDate] = useState("");
 	const [currentDate, setCurrentDate] = useState(new Date());
@@ -18,6 +19,7 @@ export default function BookAppointment() {
 	useEffect(() => {
 		if (barber.services && barber.services.length > 0) {
 			setSelectedService(barber.services[0].service);
+			setSelectedServicePrice(barber.services[0].price);
 		}
 	}, [barber.services]);
 
@@ -33,12 +35,17 @@ export default function BookAppointment() {
 				barber.schedule.endTime,
 				formattedDate
 			);
-			if (timeSlots.length === 1) {
+			if (timeSlots.length > 0) {
 				setSelectedTime(timeSlots[0]);
 			} else {
 				setSelectedTime("");
 			}
 		}
+	};
+
+	const handleServiceChange = (service) => {
+		setSelectedService(service.service);
+		setSelectedServicePrice(service.price);
 	};
 
 	const handleAppointmentSubmit = async () => {
@@ -66,6 +73,7 @@ export default function BookAppointment() {
 						barberEmail: barber.email,
 						clientEmail: currentClient.email,
 						service: selectedService,
+						price: selectedServicePrice,
 						time: selectedTime,
 						date: selectedDate,
 						clientFirstName: currentClient.firstName,
@@ -193,7 +201,7 @@ export default function BookAppointment() {
 										id={`service-${index}`}
 										name='service'
 										value={service.service}
-										onChange={() => setSelectedService(service.service)}
+										onChange={() => handleServiceChange(service)}
 										checked={selectedService === service.service}
 									/>
 									<label className='book-service' htmlFor={`service-${index}`}>

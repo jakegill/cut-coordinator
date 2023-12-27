@@ -10,11 +10,13 @@ export default async function createAppointment(req, res, next) {
 		date,
 		time,
 		service,
+		price,
 	} = req.body;
 	const barberAppointment = {
 		clientEmail,
 		clientFirstName,
 		clientLastName,
+		price,
 		date,
 		time,
 		service,
@@ -26,8 +28,6 @@ export default async function createAppointment(req, res, next) {
 		time,
 		service,
 	};
-
-	console.log("b", barberAppointment, "c", clientAppointment);
 
 	try {
 		const addAppointmentBarber = await Barber.findOneAndUpdate(
