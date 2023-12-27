@@ -8,6 +8,7 @@ import { setClientProfile } from "../../../redux/profile/clientSlice.js";
 
 export default function SignIn() {
 	const [loginForm, setLoginForm] = useState({});
+	const [error, setError] = useState("");
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const auth = useSelector((state) => state.auth);

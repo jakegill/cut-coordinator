@@ -56,7 +56,9 @@
 .appointments-section {
 	display: grid;
 	grid-template-columns: 1fr;
+	grid-template-rows: 20vh;
 	gap: 2vh;
+	overflow-y: scroll;
 }
 
 .schedule-appointment-card {
