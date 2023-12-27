@@ -1,113 +1,123 @@
 .search-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 0.05fr 0.05fr auto;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 0.05fr 0.05fr 0.05fr auto;
 }
 
 .search-title {
-  width: 100%;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .search-bar {
-  width: 80%;
-  margin-top: 3vh;
-  margin-bottom: 2vh;
-  border: none;
-  border-bottom: 1px solid var(--medium);
-  padding: 4vw;
-  font-size: 1.2rem;
-  border-radius: 10px;
+	width: 80%;
+	margin-top: 3vh;
+	margin-bottom: 2vh;
+	border: none;
+	border-bottom: 1px solid var(--medium);
+	padding: 4vw;
+	font-size: 1.2rem;
+	border-radius: 10px;
 
-  outline: none;
-  background-color: var(--dark);
-  align-self: center;
-  justify-self: center;
-  color: var(--light);
+	outline: none;
+	background-color: var(--dark);
+	align-self: center;
+	justify-self: center;
+	color: var(--light);
 }
 
 .search-bar:focus {
-  outline: 1px solid var(--primary);
+	outline: 1px solid var(--primary);
 }
 
 .barber-search-container {
-  width: 100%;
-  gap: 2vw;
-  padding: 2vh 0 2vh 0;
-  height: 71vh;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  overflow-y: scroll;
+	width: 100%;
+	gap: 2vw;
+	padding: 2vh 0 2vh 0;
+	height: 71vh;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	overflow-y: scroll;
 }
 
 .barber-card {
-  height: 26vh;
-  margin-inline: 6vw;
-  color: var(--light);
-  padding: 3vw;
-  background-color: var(--dark);
-  display: grid;
-  gap: 2vh;
+	height: 26vh;
+	margin-inline: 6vw;
+	color: var(--light);
+	padding: 3vw;
+	background-color: var(--dark);
+	display: grid;
+	gap: 2vh;
 }
 
 .barber-card-top-container {
-  display: flex;
-  align-items: center;
-  gap: 4vw;
+	display: flex;
+	align-items: center;
+	gap: 4vw;
 }
 
 .barber-card-name {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-  color: var(--lightest);
+	font-size: 1rem;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+	color: var(--lightest);
 }
 
 .barber-card-location {
-  font-size: 0.8rem;
-  margin: 0;
-  padding: 0;
-  color: var(--light);
+	font-size: 0.8rem;
+	margin: 0;
+	padding: 0;
+	color: var(--light);
 }
 
 .barber-card-pfp {
-  height: 8vh;
-  width: 8vh;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
+	height: 8vh;
+	width: 8vh;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
 }
 
 .barber-card-portfolio {
-  display: flex;
-  align-items: center;
-  
-  gap: 2vw;
-  overflow-x: scroll;
+	display: flex;
+	align-items: center;
+
+	gap: 2vw;
+	overflow-x: scroll;
 }
 
 .barber-portfolio-image {
-  height: 10vh;
-  width: 10vh;
-  border: 1px solid var(--light);
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
+	height: 10vh;
+	width: 10vh;
+	border: 1px solid var(--light);
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
 }
 
 .barber-card-button {
-  color: var(--primary);
-  background-color: var(--dark);
-  border: 1px solid var(--primary);
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.03rem;
+	color: var(--primary);
+	background-color: var(--dark);
+	border: 1px solid var(--primary);
+	font-weight: 600;
+	font-size: 0.8rem;
+	letter-spacing: 0.03rem;
+}
+
+.client-search-spinner-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	background-color: var(--darkest);
+	color: var(--primary);
 }

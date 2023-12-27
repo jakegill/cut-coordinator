@@ -137,3 +137,11 @@
 	font-size: 0.8rem;
 	font-weight: 600;
 }
+.barber-profile-spinner-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: var(--darkest);
+	color: var(--primary);
+}

@@ -1,161 +1,168 @@
 .client-container {
-  height: 90vh;
-  background-color: var(--darkest);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 8vh 22vh 60vh;
+	height: 90vh;
+	background-color: var(--darkest);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 8vh 22vh 60vh;
 }
 
 .client-title {
-  width: 100%;
-  color: var(--lightest);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	color: var(--lightest);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .client-img {
-  justify-self: flex-start;
-  border: 1px solid var(--light);
-  border-radius: 50%;
-  align-self: center;
-  justify-self: center;
-  height: 20vh;
-  width: 20vh;
-  object-fit: cover;
+	justify-self: flex-start;
+	border: 1px solid var(--light);
+	border-radius: 50%;
+	align-self: center;
+	justify-self: center;
+	height: 20vh;
+	width: 20vh;
+	object-fit: cover;
 }
 
 .client-img:hover {
-  cursor: pointer;
-  border: 1px solid var(--primary);
+	cursor: pointer;
+	border: 1px solid var(--primary);
 }
 
 .client-name {
-  color: var(--light);
-  font-size: 1.5rem;
-  font-weight: 600;
-  justify-self: center;
-  margin: 0;
-  padding: 2vh 0 0 0;
+	color: var(--light);
+	font-size: 1.5rem;
+	font-weight: 600;
+	justify-self: center;
+	margin: 0;
+	padding: 2vh 0 0 0;
 }
 
 .client-main-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2vh 4vw 2vh 4vw;
-  font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2vh 4vw 2vh 4vw;
+	font-weight: 600;
 }
 
 .client-subtitle {
-  color: var(--lightest);
-  font-size: 1rem;
+	color: var(--lightest);
+	font-size: 1rem;
 }
 
 .no-barbers {
-  color: var(--light);
-  font-size: 1.2rem;
+	color: var(--light);
+	font-size: 1.2rem;
 }
 
 .no-barbers-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 .no-barbers-button {
-  background-color: var(--dark);
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  padding: 1vh 2vw 1vh 2vw;
-  font-size: 1rem;
+	background-color: var(--dark);
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+	padding: 1vh 2vw 1vh 2vw;
+	font-size: 1rem;
 }
 
 .no-barbers-button:hover {
-  cursor: pointer;
-  background-color: var(--light);
+	cursor: pointer;
+	background-color: var(--light);
 }
 
 a:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .dialog-container {
-  height: 20vh;
-  width: 60vw;
-  background-color: var(--dark);
-  outline: none;
-  border: 1px solid var(--light);
-  overflow-x: hidden;
+	height: 20vh;
+	width: 60vw;
+	background-color: var(--dark);
+	outline: none;
+	border: 1px solid var(--light);
+	overflow-x: hidden;
 }
 
 .dialog-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1vh;
-  margin-top: 3vh;
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1vh;
+	margin-top: 3vh;
 }
 
 .dialog-close {
-  
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ef233c;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #ef233c;
 }
 
 .dialog-close:hover {
-  cursor: pointer;
-  color: #d90429;
+	cursor: pointer;
+	color: #d90429;
 }
 
 .dialog-input {
-  color: var(--light);
-  font-size: 1rem;
+	color: var(--light);
+	font-size: 1rem;
 }
 
 .dialog-label {
-  color: var(--light);
-  font-size: 1rem;
+	color: var(--light);
+	font-size: 1rem;
 }
 
 .dialog-submit {
-  background-color: var(--dark);
-  color: var(--primary);
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  padding: 1vh 2vw 1vh 2vw;
-  font-size: 1rem;
-  font-weight: 600;
-
+	background-color: var(--dark);
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+	padding: 1vh 2vw 1vh 2vw;
+	font-size: 1rem;
+	font-weight: 600;
 }
 
 .client-barbers-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  overflow-y: scroll;
-  height: 40vh;
-  gap: 3vh;
+	display: grid;
+	grid-template-columns: 1fr;
+	overflow-y: scroll;
+	height: 40vh;
+	gap: 3vh;
 }
 
 .barber-card-client-home {
-  height: 30vh;
-  margin-inline: 6vw;
-  color: var(--light);
-  padding: 3vw;
-  background-color: var(--dark);
-  display: grid;
-  gap: 2vh;
+	height: 30vh;
+	margin-inline: 6vw;
+	color: var(--light);
+	padding: 3vw;
+	background-color: var(--dark);
+	display: grid;
+	gap: 2vh;
 }
 
 .client-button-remove {
-  color: #ef233c;
-  background-color: var(--dark);
-  border: 1px solid #ef233c;
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.03rem;
+	color: #ef233c;
+	background-color: var(--dark);
+	border: 1px solid #ef233c;
+	font-weight: 600;
+	font-size: 0.8rem;
+	letter-spacing: 0.03rem;
+}
+
+.client-home-spinner-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	background-color: var(--darkest);
+	color: var(--primary);
 }
