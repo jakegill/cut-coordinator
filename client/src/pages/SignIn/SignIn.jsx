@@ -25,7 +25,6 @@ export default function SignIn() {
 			...loginForm,
 			[e.target.id]: e.target.value,
 		});
-		console.log(loginForm);
 	};
 
 	const handleLoginFormSubmit = async (e) => {
