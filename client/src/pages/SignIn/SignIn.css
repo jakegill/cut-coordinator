@@ -99,6 +99,12 @@ a {
 	color: var(--primary);
 }
 
+.signin-error {
+	color: #ef233c;
+	text-align: center;
+	font-size: 1rem;
+}
+
 @media (min-width: 768px) {
 	.signin-section {
 		color: var(--lightest);
@@ -107,5 +113,9 @@ a {
 		grid-template-columns: 1fr;
 		height: 25vh;
 		width: 30vw;
+	}
+
+	.signin-error {
+		padding: 4vh;
 	}
 }

@@ -31,6 +31,7 @@ export default function SignIn() {
 	const handleLoginFormSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			setError("");
 			const response = await fetch("http://localhost:3000/api/auth/signin", {
 				method: "POST",
 				headers: {
@@ -48,6 +49,8 @@ export default function SignIn() {
 					dispatch(setClientProfile(usersAccountData));
 					navigate("/client");
 				}
+			} else {
+				setError(usersAccountData.message || "Invalid credentials");
 			}
 		} catch (error) {
 			console.error("Login error:", error);
@@ -85,6 +88,7 @@ export default function SignIn() {
 						SIGN IN
 					</button>
 				</form>
+				<div className='signin-error'>{error}</div>
 			</section>
 		</div>
 	);

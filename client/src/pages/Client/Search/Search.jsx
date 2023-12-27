@@ -7,6 +7,7 @@ import "./Search.css";
 export default function Search() {
 	const [barbers, setBarbers] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+	const [searchInput, setSearchInput] = useState("");
 	const navigate = useNavigate();
 
 	const handleBookAppointmentClick = (barber) => {
@@ -35,6 +36,14 @@ export default function Search() {
 		fetchBarbers();
 	}, []);
 
+	const handleSearchInputChange = (e) => {
+		setSearchInput(e.target.value.toLowerCase());
+	};
+
+	const filteredBarbers = barbers.filter((barber) =>
+		barber.firstName.toLowerCase().includes(searchInput)
+	);
+
 	return (
 		<>
 			<section className='search-container'>
@@ -43,6 +52,7 @@ export default function Search() {
 					type='text'
 					className='search-bar'
 					placeholder='Find barbers...'
+					onChange={handleSearchInputChange}
 				/>
 				<main className='barber-search-container'>
 					{isLoading ? (
@@ -54,7 +64,7 @@ export default function Search() {
 							/>
 						</div>
 					) : (
-						barbers.map((barber) => (
+						filteredBarbers.map((barber) => (
 							<div className='barber-card' key={barber._id}>
 								<div className='barber-card-top-container'>
 									<img

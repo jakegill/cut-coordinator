@@ -187,3 +187,10 @@ input::placeholder {
 	cursor: pointer;
 	border-bottom: 1px solid #ef233c;
 }
+
+@media (min-width: 768px) {
+	.edit-container {
+		width: 60vw;
+		padding-inline: 20vw;
+	}
+}

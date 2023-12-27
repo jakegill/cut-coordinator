@@ -158,76 +158,75 @@ export default function ClientHome() {
 					<header className='client-main-header'>
 						<h3 className='client-subtitle'>MY BARBERS</h3>
 					</header>
-					<div>
-						{profile.barbers.length === 0 ? (
-							<>
-								<div className='no-barbers-container'>
-									<p className='no-barbers'>No saved barbers!</p>
-									<Link className='no-barbers-button' to='/client/search'>
-										Find Barbers
-									</Link>
-								</div>
-							</>
-						) : (
-							<div className='client-barbers-container'>
-								{isLoading ? (
-									<div className='client-home-spinner-container'>
-										<ClipLoader
-											loading={isLoading}
-											size={"10vh"}
-											color={"var(--primary)"}
-										/>
-									</div>
-								) : (
-									savedBarbers.map((barber) => (
-										<div className='barber-card-client-home' key={barber._id}>
-											<div className='barber-card-top-container'>
-												<img
-													className='barber-card-pfp'
-													src={`${barber.profilePicture}`}
-													alt=''
-												/>
-												<div>
-													<h3 className='barber-card-name'>{`${barber.firstName} ${barber.lastName}`}</h3>
-													<p className='barber-card-location'>
-														{barber.location
-															? `${barber.location.city}, ${barber.location.state}`
-															: "Location unavailable"}
-													</p>
-												</div>
-											</div>
-											<div className='barber-card-portfolio'>
-												{barber.portfolio && barber.portfolio.length > 0 ? (
-													barber.portfolio.map((imageUrl, index) => (
-														<img
-															key={index}
-															src={imageUrl}
-															alt={`Portfolio image ${index + 1}`}
-															className='barber-portfolio-image'
-														/>
-													))
-												) : (
-													<p>No portfolio images available.</p>
-												)}
-											</div>
-											<button
-												onClick={() => handleBookAppointmentClick(barber)}
-												className='barber-card-button'
-											>
-												BOOK APPOINTMENT
-											</button>
-											<button
-												onClick={() => handleUnsaveClick(barber.email)}
-												className='client-button-remove'
-											>
-												UNSAVE BARBER
-											</button>
-										</div>
-									))
-								)}
+
+					{profile.barbers.length === 0 ? (
+						<>
+							<div className='no-barbers-container'>
+								<p className='no-barbers'>No saved barbers!</p>
+								<Link className='no-barbers-button' to='/client/search'>
+									Find Barbers
+								</Link>
 							</div>
-						)}
-					</div>
+						</>
+					) : (
+						<div className='client-barbers-container'>
+							{isLoading ? (
+								<div className='client-home-spinner-container'>
+									<ClipLoader
+										loading={isLoading}
+										size={"10vh"}
+										color={"var(--primary)"}
+									/>
+								</div>
+							) : (
+								savedBarbers.map((barber) => (
+									<div className='barber-card-client-home' key={barber._id}>
+										<div className='barber-card-top-container'>
+											<img
+												className='barber-card-pfp'
+												src={`${barber.profilePicture}`}
+												alt=''
+											/>
+											<div>
+												<h3 className='barber-card-name'>{`${barber.firstName} ${barber.lastName}`}</h3>
+												<p className='barber-card-location'>
+													{barber.location
+														? `${barber.location.city}, ${barber.location.state}`
+														: "Location unavailable"}
+												</p>
+											</div>
+										</div>
+										<div className='barber-card-portfolio'>
+											{barber.portfolio && barber.portfolio.length > 0 ? (
+												barber.portfolio.map((imageUrl, index) => (
+													<img
+														key={index}
+														src={imageUrl}
+														alt={`Portfolio image ${index + 1}`}
+														className='barber-portfolio-image'
+													/>
+												))
+											) : (
+												<p>No portfolio images available.</p>
+											)}
+										</div>
+										<button
+											onClick={() => handleBookAppointmentClick(barber)}
+											className='barber-card-button'
+										>
+											BOOK APPOINTMENT
+										</button>
+										<button
+											onClick={() => handleUnsaveClick(barber.email)}
+											className='client-button-remove'
+										>
+											UNSAVE BARBER
+										</button>
+									</div>
+								))
+							)}
+						</div>
+					)}
 				</main>
 			</section>
 

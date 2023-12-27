@@ -89,7 +89,6 @@
 .barber-card-portfolio {
 	display: flex;
 	align-items: center;
-
 	gap: 2vw;
 	overflow-x: scroll;
 }
@@ -120,4 +119,35 @@
 	width: 100%;
 	background-color: var(--darkest);
 	color: var(--primary);
+}
+
+@media (min-width: 768px) {
+	.search-container {
+		padding-inline: 25vw;
+	}
+
+	.search-bar {
+		width: 60%;
+		border: none;
+		border-bottom: 1px solid var(--medium);
+		padding: 1vw;
+		font-size: 1.2rem;
+		border-radius: 10px;
+
+		outline: none;
+		background-color: var(--dark);
+		align-self: center;
+		justify-self: center;
+		color: var(--light);
+	}
+
+	.barber-card {
+		height: 32vh;
+		margin-inline: 6vw;
+		color: var(--light);
+		padding: 3vw;
+		background-color: var(--dark);
+		display: grid;
+		gap: 2vh;
+	}
 }

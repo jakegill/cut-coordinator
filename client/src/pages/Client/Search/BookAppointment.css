@@ -104,3 +104,10 @@
 .past-date {
 	color: var(--medium);
 }
+
+@media (min-width: 768px) {
+	.book-container {
+		grid-template-columns: 1fr;
+		grid-template-rows: 8vh 12vh 80vh;
+	}
+}

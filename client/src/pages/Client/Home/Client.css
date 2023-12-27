@@ -166,3 +166,23 @@ a:hover {
 	background-color: var(--darkest);
 	color: var(--primary);
 }
+
+@media (min-width: 768px) {
+	.client-container {
+		padding-inline: 20vw;
+	}
+
+	.barber-card-client-home {
+		height: 35vh;
+		margin-inline: 3vw;
+		color: var(--light);
+		padding: 1vw;
+		background-color: var(--dark);
+		display: grid;
+		gap: 1vh;
+	}
+
+	.client-subtitle {
+		margin: 0;
+	}
+}
