@@ -17,7 +17,6 @@ export default function Settings() {
 		dispatch(resetClientProfile());
 
 		await persistor.purge();
-		console.log("purge");
 
 		redirect("/signin");
 	};

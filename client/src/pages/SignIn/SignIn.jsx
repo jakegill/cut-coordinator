@@ -38,7 +38,6 @@ export default function SignIn() {
 				body: JSON.stringify(loginForm),
 			});
 			const usersAccountData = await response.json();
-			console.log(usersAccountData);
 			if (response.ok) {
 				dispatch(signIn(usersAccountData));
 				if (usersAccountData.accountType === "barber") {

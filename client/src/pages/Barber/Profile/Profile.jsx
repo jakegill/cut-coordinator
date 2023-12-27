@@ -27,7 +27,7 @@ export default function Profile() {
 			setLoading(false);
 		} catch (error) {
 			setLoading(false);
-			console.log(error);
+			console.error(error);
 		}
 	};
 

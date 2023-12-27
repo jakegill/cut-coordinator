@@ -51,7 +51,6 @@ export default function ClientHome() {
 				throw new Error(error.message);
 			}
 			const result = await response.json();
-			console.log("Profile picture uploaded:", result.imgUrl);
 			setProfilePicture(null);
 		} catch (error) {
 			console.error("Error:", error);
@@ -82,7 +81,7 @@ export default function ClientHome() {
 			await fetchClientData();
 			await fetchSavedBarbersData();
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
 
@@ -117,7 +116,7 @@ export default function ClientHome() {
 			setSavedBarbers(barberData);
 			setLoading(false);
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 			setLoading(false);
 		}
 	};

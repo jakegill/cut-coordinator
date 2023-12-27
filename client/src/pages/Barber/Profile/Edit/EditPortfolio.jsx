@@ -33,7 +33,6 @@ export default function EditPortfolio() {
 				throw new Error("Failed to upload image");
 			}
 			const result = await response.json();
-			console.log("Image uploaded:", result.imgUrl);
 			redirect("/barber/profile");
 			setImage(null);
 		} catch (error) {
@@ -42,7 +41,6 @@ export default function EditPortfolio() {
 	};
 
 	const handleImageDelete = async (photo) => {
-		console.log("photo", photo);
 		try {
 			const response = await fetch(
 				`http://localhost:3000/api/gcs/${email}/deleteImg`,
@@ -58,7 +56,6 @@ export default function EditPortfolio() {
 				throw new Error("Failed to delete image");
 			}
 			const result = await response.json();
-			console.log("Image deleted:", result.imgUrl);
 			redirect("/barber/profile");
 			setCurrentPhotos(result.portfolio);
 		} catch (error) {
