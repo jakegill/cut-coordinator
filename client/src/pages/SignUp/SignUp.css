@@ -14,7 +14,7 @@
 	grid-template-rows: 0.1fr 0.1fr 0.8fr;
 	grid-template-columns: 1fr;
 	height: 55vh;
-	width: 80vw;
+	width: 90vw;
 }
 
 .signup-title {
@@ -42,7 +42,7 @@
 	background: none;
 	border: none;
 	width: 98%;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	font-weight: 600;
 	line-height: 1.6rem;
 	margin-bottom: 1vh;
@@ -73,6 +73,7 @@
 	line-height: 1.6rem;
 	width: 100%;
 	background: none;
+	font-size: 1rem;
 	border: none;
 	border-bottom: 1.5px solid var(--medium);
 	color: var(--lightest);
@@ -123,7 +124,7 @@
 .signup-form-submit {
 	font-family: "Roboto";
 	font-weight: 600;
-	font-size: 0.8rem;
+	font-size: 1rem;
 	letter-spacing: 0.04rem;
 	color: var(--darkest);
 	background: var(--primary);

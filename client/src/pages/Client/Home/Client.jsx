@@ -40,7 +40,7 @@ export default function ClientHome() {
 		formData.append("file", profilePicture);
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/gcs/${auth.email}/uploadClientProfile`,
+				`${process.env.VITE_APP_API_URL}/api/gcs/${auth.email}/uploadClientProfile`,
 				{
 					method: "POST",
 					body: formData,
@@ -64,7 +64,7 @@ export default function ClientHome() {
 	const handleUnsaveClick = async (barberEmail) => {
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/client/${auth.email}`,
+				`${process.env.VITE_APP_API_URL}/api/client/${auth.email}`,
 				{
 					method: "DELETE",
 					headers: {
@@ -88,7 +88,7 @@ export default function ClientHome() {
 	const fetchClientData = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/client/${auth.email}`
+				`${process.env.VITE_APP_API_URL}/api/client/${auth.email}`
 			);
 			if (!response.ok) {
 				throw new Error("Failed to fetch client details");
@@ -108,8 +108,8 @@ export default function ClientHome() {
 		try {
 			setLoading(true);
 			const barberDataPromises = profile.barbers.map((barberEmail) =>
-				fetch(`http://localhost:3000/api/barber/${barberEmail}`).then((res) =>
-					res.json()
+				fetch(`${process.env.VITE_APP_API_URL}/api/barber/${barberEmail}`).then(
+					(res) => res.json()
 				)
 			);
 			const barberData = await Promise.all(barberDataPromises);

@@ -20,7 +20,7 @@ export default function EditPFP() {
 		formData.append("file", profilePicture);
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/gcs/${email}/uploadBarberProfile`,
+				`${process.env.VITE_APP_API_URL}/api/gcs/${email}/uploadBarberProfile`,
 				{
 					method: "POST",
 					body: formData,

@@ -28,14 +28,17 @@ export default function SignUp() {
 		} else {
 			try {
 				setError("");
-				const res = await fetch("http://localhost:3000/api/auth/signup", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({
-						...signUpForm,
-						accountType,
-					}),
-				});
+				const res = await fetch(
+					`${process.env.VITE_APP_API_URL}/api/auth/signup`,
+					{
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						body: JSON.stringify({
+							...signUpForm,
+							accountType,
+						}),
+					}
+				);
 				const data = await res.json();
 				navigate("/signin");
 			} catch (error) {
@@ -51,7 +54,7 @@ export default function SignUp() {
 				<h1 className='signup-title'>Cut Coordinator</h1>
 				<ul className='signup-ul'>
 					<Link className='signup-tab' name='signin' to='/signin'>
-						LOG IN
+						SIGN IN
 					</Link>
 					<Link className='signup-tab tab-active' name='signup' to='/signup'>
 						SIGN UP

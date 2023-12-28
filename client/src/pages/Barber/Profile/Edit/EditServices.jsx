@@ -34,7 +34,7 @@ export default function EditServices() {
 	const updateBarberServices = async (newService) => {
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/barber/${email}`,
+				`${process.env.VITE_APP_API_URL}/api/barber/${email}`,
 				{
 					method: "POST",
 					headers: {
@@ -55,7 +55,7 @@ export default function EditServices() {
 	const deleteBarberService = async (serviceId) => {
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/barber/${email}/service`,
+				`${process.env.VITE_APP_API_URL}/api/barber/${email}/service`,
 				{
 					method: "DELETE",
 					headers: {
@@ -76,7 +76,9 @@ export default function EditServices() {
 
 	const fetchCurrentServices = async () => {
 		try {
-			const response = await fetch(`http://localhost:3000/api/barber/${email}`);
+			const response = await fetch(
+				`${process.env.VITE_APP_API_URL}/api/barber/${email}`
+			);
 			if (!response.ok) {
 				throw new Error("Failed to get barber services.");
 			}

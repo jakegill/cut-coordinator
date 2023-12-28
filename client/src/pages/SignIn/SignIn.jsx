@@ -32,13 +32,16 @@ export default function SignIn() {
 		e.preventDefault();
 		try {
 			setError("");
-			const response = await fetch("http://localhost:3000/api/auth/signin", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(loginForm),
-			});
+			const response = await fetch(
+				`${process.env.VITE_APP_API_URL}/api/auth/signin`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(loginForm),
+				}
+			);
 			const usersAccountData = await response.json();
 			if (response.ok) {
 				dispatch(signIn(usersAccountData));

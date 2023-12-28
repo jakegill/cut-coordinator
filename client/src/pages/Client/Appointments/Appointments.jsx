@@ -19,7 +19,7 @@ export default function Appointments() {
 	const getAppointments = async () => {
 		try {
 			const response = await fetch(
-				`http://localhost:3000/api/client/${currentClient.email}`
+				`${process.env.VITE_APP_API_URL}/api/client/${currentClient.email}`
 			);
 			if (!response.ok) {
 				throw new Error("Failed to fetch appointments");
@@ -33,7 +33,7 @@ export default function Appointments() {
 
 			for (const appointment of clientData.appointments) {
 				const barberResponse = await fetch(
-					`http://localhost:3000/api/barber/${appointment.barberEmail}`
+					`${process.env.VITE_APP_API_URL}/api/barber/${appointment.barberEmail}`
 				);
 				const barber = await barberResponse.json();
 				const [dayOfWeek, monthDay] = appointment?.date.split(", ");
