@@ -102,7 +102,7 @@ export default function SignIn() {
 						</div>
 					) : (
 						<button className='signin-form-submit' type='submit'>
-							SIGN UP
+							SIGN IN
 						</button>
 					)}
 				</form>
