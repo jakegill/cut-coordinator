@@ -29,7 +29,6 @@ export default function EditPFP() {
 			if (!response.ok) {
 				throw new Error("Failed to upload profile picture");
 			}
-			const result = await response.json();
 			redirect("/barber/profile");
 			setProfilePicture(null);
 		} catch (error) {
