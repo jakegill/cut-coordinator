@@ -48,7 +48,7 @@ export default function EditSchedule() {
 	const updateBarberSchedule = async (schedule) => {
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/barber/${email}`,
+				`${import.meta.env.VITE_APP_API_URL}/api/barber/${email}`,
 				{
 					method: "POST",
 					headers: {

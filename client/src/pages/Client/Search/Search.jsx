@@ -18,7 +18,7 @@ export default function Search() {
 		setLoading(true);
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/barber/getAllBarbers`
+				`${import.meta.env.VITE_APP_API_URL}/api/barber/getAllBarbers`
 			);
 			if (!response.ok) {
 				throw new Error("Failed to fetch barbers");

@@ -33,7 +33,7 @@ export default function SignIn() {
 		try {
 			setError("");
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/auth/signin`,
+				`${import.meta.env.VITE_APP_API_URL}/api/auth/signin`,
 				{
 					method: "POST",
 					headers: {

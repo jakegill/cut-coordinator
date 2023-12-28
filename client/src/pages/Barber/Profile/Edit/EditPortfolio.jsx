@@ -23,7 +23,7 @@ export default function EditPortfolio() {
 		formData.append("file", image);
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/gcs/${email}/uploadPortfolio`,
+				`${import.meta.env.VITE_APP_API_URL}/api/gcs/${email}/uploadPortfolio`,
 				{
 					method: "POST",
 					body: formData,
@@ -43,7 +43,7 @@ export default function EditPortfolio() {
 	const handleImageDelete = async (photo) => {
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/gcs/${email}/deleteImg`,
+				`${import.meta.env.VITE_APP_API_URL}/api/gcs/${email}/deleteImg`,
 				{
 					method: "DELETE",
 					headers: {

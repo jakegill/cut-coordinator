@@ -17,7 +17,7 @@ export default function Profile() {
 		setLoading(true);
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/barber/${auth.email}`
+				`${import.meta.env.VITE_APP_API_URL}/api/barber/${auth.email}`
 			);
 			if (!response.ok) {
 				throw new Error("Failed to fetch barber details");

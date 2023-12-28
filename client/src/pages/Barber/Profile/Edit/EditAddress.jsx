@@ -33,7 +33,7 @@ export default function EditAddress() {
 	const updateBarberLocation = async (location) => {
 		try {
 			const response = await fetch(
-				`${process.env.VITE_APP_API_URL}/api/barber/${email}`,
+				`${import.meta.env.VITE_APP_API_URL}/api/barber/${email}`,
 				{
 					method: "POST",
 					headers: {
