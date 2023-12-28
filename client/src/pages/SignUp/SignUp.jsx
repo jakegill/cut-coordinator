@@ -6,6 +6,7 @@ import { signIn } from "../../../redux/auth/authSlice.js";
 import { setBarberProfile } from "../../../redux/profile/barberSlice.js";
 import { setClientProfile } from "../../../redux/profile/clientSlice.js";
 import { ClipLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
 	const [isLoading, setLoading] = useState(false);
@@ -13,6 +14,7 @@ export default function SignUp() {
 	const [signUpForm, setSignUpForm] = useState({});
 	const [error, setError] = useState("");
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleAccountTypeChange = (e) => {
 		setAccountType(e.target.value);
@@ -190,8 +192,8 @@ export default function SignUp() {
 						<div className='signup-spinner-container'>
 							<ClipLoader
 								loading={isLoading}
-								size={`5vh`}
-								color={`var(--darkest)`}
+								size={`10vh`}
+								color={`var(--primary)`}
 							/>
 						</div>
 					) : (
