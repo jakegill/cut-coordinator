@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { signIn } from "../../../redux/auth/authSlice.js";
 import { setBarberProfile } from "../../../redux/profile/barberSlice.js";
 import { setClientProfile } from "../../../redux/profile/clientSlice.js";
+import { ClipLoader } from "react-spinners";
 
 export default function SignIn() {
+	const [isLoading, setLoading] = useState(false);
 	const [loginForm, setLoginForm] = useState({});
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -32,6 +34,7 @@ export default function SignIn() {
 		e.preventDefault();
 		try {
 			setError("");
+			setLoading(true);
 			const response = await fetch(
 				`${import.meta.env.VITE_APP_API_URL}/api/auth/signin`,
 				{
@@ -53,10 +56,12 @@ export default function SignIn() {
 					navigate("/client");
 				}
 			} else {
+				setLoading(false);
 				setError(usersAccountData.message || "Invalid credentials");
 			}
 		} catch (error) {
 			console.error("Login error:", error);
+			setLoading(false);
 		}
 	};
 
@@ -87,9 +92,19 @@ export default function SignIn() {
 						placeholder='Password'
 						onChange={handleLoginFormChange}
 					/>
-					<button className='signin-form-submit' type='submit'>
-						SIGN IN
-					</button>
+					{isLoading ? (
+						<div className='signin-spinner-container'>
+							<ClipLoader
+								loading={isLoading}
+								size={`10vh`}
+								color={`var(--primary)`}
+							/>
+						</div>
+					) : (
+						<button className='signin-form-submit' type='submit'>
+							SIGN UP
+						</button>
+					)}
 				</form>
 				<div className='signin-error'>{error}</div>
 			</section>
