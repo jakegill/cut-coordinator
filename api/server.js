@@ -8,6 +8,7 @@ import client from "./routes/client.route.js";
 import barber from "./routes/barber.route.js";
 import gcs from "./routes/images.route.js";
 import appointments from "./routes/appointments.route.js";
+import path from "path";
 dotenv.config();
 
 const app = express();
@@ -21,6 +22,8 @@ mongoose
 	.then(() => console.log("MongoDB connected"))
 	.catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
+const __dirname = path.resolve();
+
 app.listen(3000, () => console.log("Server running on port 3000"));
 
 // Routes
@@ -29,6 +32,12 @@ app.use("/api/barber", barber);
 app.use("/api/client", client);
 app.use("/api/gcs", upload.single("file"), gcs); //google cloud storage for images
 app.use("/api/appointments", appointments);
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 //Middleware
 app.use((err, req, res, next) => {
