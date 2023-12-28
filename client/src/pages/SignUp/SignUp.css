@@ -56,10 +56,11 @@
 .signup-form {
 	display: flex;
 	flex-direction: column;
-	gap: 2vh;
+	gap: 3vh;
 	align-items: flex-start;
 	margin: 0;
 	padding: 0;
+	margin-top: 3vh;
 }
 
 .signup-form-name {
@@ -132,6 +133,7 @@
 	width: 100%;
 	line-height: 1.6rem;
 	align-self: center;
+	height: 5vh;
 }
 
 .signup-form-submit:hover {
@@ -141,6 +143,15 @@
 .signup-form-error {
 	color: red;
 	font-size: 0.8rem;
+}
+
+.signup-spinner-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 10vh;
+	background-color: var(--darkest);
+	color: var(--primary);
 }
 
 @media (min-width: 768px) {

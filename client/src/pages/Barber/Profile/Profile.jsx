@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { setBarberProfile } from "../../../../redux/profile/barberSlice.js";
 import { ClipLoader } from "react-spinners";
 import "./Profile.css";
-import { set } from "mongoose";
 
 export default function Profile() {
 	const auth = useSelector((state) => state.auth);

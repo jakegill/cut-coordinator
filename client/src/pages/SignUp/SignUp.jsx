@@ -1,12 +1,18 @@
 import "./SignUp.css";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../../redux/auth/authSlice.js";
+import { setBarberProfile } from "../../../redux/profile/barberSlice.js";
+import { setClientProfile } from "../../../redux/profile/clientSlice.js";
+import { ClipLoader } from "react-spinners";
 
 export default function SignUp() {
+	const [isLoading, setLoading] = useState(false);
 	const [accountType, setAccountType] = useState("client");
 	const [signUpForm, setSignUpForm] = useState({});
 	const [error, setError] = useState("");
-	const navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const handleAccountTypeChange = (e) => {
 		setAccountType(e.target.value);
@@ -26,9 +32,10 @@ export default function SignUp() {
 		} else if (signUpForm.password !== signUpForm.confirmPassword) {
 			setError("Passwords do not match.");
 		} else {
+			setLoading(true);
 			try {
 				setError("");
-				const res = await fetch(
+				const signUpResponse = await fetch(
 					`${import.meta.env.VITE_APP_API_URL}/api/auth/signup`,
 					{
 						method: "POST",
@@ -39,11 +46,47 @@ export default function SignUp() {
 						}),
 					}
 				);
-				const data = await res.json();
-				navigate("/signin");
+
+				const signUpData = await signUpResponse.json();
+
+				if (signUpResponse.ok) {
+					// Automatic sign-in
+					const signInResponse = await fetch(
+						`${import.meta.env.VITE_APP_API_URL}/api/auth/signin`,
+						{
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify({
+								email: signUpForm.email,
+								password: signUpForm.password,
+							}),
+						}
+					);
+
+					const signInData = await signInResponse.json();
+
+					if (signInResponse.ok) {
+						dispatch(signIn(signInData));
+						if (signInData.accountType === "barber") {
+							dispatch(setBarberProfile(signInData));
+							navigate("/barber");
+						} else if (signInData.accountType === "client") {
+							dispatch(setClientProfile(signInData));
+							navigate("/client");
+						}
+					} else {
+						setLoading(false);
+						setError(signInData.message || "Automatic sign-in failed");
+					}
+				} else {
+					setLoading(false);
+					setError(signUpData.message || "Sign up failed");
+				}
+				setLoading(false);
 			} catch (error) {
 				console.error(error);
 				setError(error.message);
+				setLoading(false);
 			}
 		}
 	};
@@ -143,9 +186,19 @@ export default function SignUp() {
 							</label>
 						</div>
 					</div>
-					<button className='signup-form-submit' type='submit'>
-						SIGN UP
-					</button>
+					{isLoading ? (
+						<div className='signup-spinner-container'>
+							<ClipLoader
+								loading={isLoading}
+								size={`5vh`}
+								color={`var(--darkest)`}
+							/>
+						</div>
+					) : (
+						<button className='signup-form-submit' type='submit'>
+							SIGN UP
+						</button>
+					)}
 					<p className='signup-form-error'>{error}</p>
 				</form>
 			</section>
